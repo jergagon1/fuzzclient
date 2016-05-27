@@ -1,0 +1,61 @@
+profile-editor
+	position: absolute
+	top: 100%
+	width: 100%
+	background: $grey_light
+	height: 0
+	display: block
+	z-index: 100
+	overflow-x: hidden
+	overflow-y: scroll
+	+transition(all .6s ease-in-out)
+	&.show
+		top: 0
+		height: 100%
+	.settings-title
+		margin: 30px auto
+		text-align: center
+	#photo-holder
+		display: block
+		margin: auto
+		+size(100%)
+		max-width: 168px
+		max-height: 168px
+		+set-border-radius(5px) 
+		background:
+			size: contain
+			position: center center
+	#upload-profile-image
+		margin: 30px auto
+		width: 100%
+	.profile-edit-wrapper
+		margin: 0 42px 50px
+		.form-group
+			margin-bottom: 30px
+		.input
+			width: 100%
+	
+		.dropdown
+			width: 100%
+					
+@media screen and (min-width: 640px) and (min-height: 640px)
+	profile-editor.show
+		.settings-title
+			margin-bottom: 40px
+		#photo-holder
+			+size(250px)
+		#upload-profile-image
+			margin: 30px auto 40px
+			width: 50%
+		#general-settings, #password-settings, #notification-settings
+			width: 70%
+			margin: 0 auto 50px
+		#notification-settings
+			margin-bottom: 80px
+
+@media screen and (min-width: 1025px) and (min-height: 500px)
+	profile-editor.show
+		height: auto
+		-ms-overflow-y: auto 
+		overflow-y: auto 
+

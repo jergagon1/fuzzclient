@@ -1,0 +1,64 @@
+navProgress
+  width: 260px
+  margin: 25px auto 25px
+  display: flex
+  +justify-content(space-between)
+  +align-items(center)
+  font-size: 18px  
+  .step-icon
+    display: table
+    +size(41px)
+    +set-border-radius(40px)
+    background-color: $agrey_light    
+    [class*=" icon-"], [class^="icon-"]
+      display: table-cell
+      text-align: center
+      vertical-align: middle
+      color: white
+      font-size: 1em
+      &:before
+        margin: 0    
+    .icon-location
+      font-size: 1.1em    
+    .icon-photo-edit:before
+      margin-left: 0
+    .icon-fuzz-description:before
+      margin-right: 0
+    .devider
+      display: block
+      +set-size(50px, 6px)
+      +set-border-radius(3px)
+      background-color: $agrey_light
+
+//Define colors
+$step-colors: ( orange: $maroon_light, green: $turquoise_dark, purple: $purple_light)
+.progress
+  @each $name, $color in $step-colors
+    &-#{$name}
+      &.step-1
+        .step-1
+          background-color: $color
+      &.step-2
+        .step-2
+          background-color: $color
+      &.step-3
+        .step-2,.step-3
+          background-color: $color
+
+
+@media screen and (max-width: 320px)
+  navProgress
+    margin: 15px auto 15px
+
+@media screen and (max-height: 567px)
+  navProgress
+    margin: 25px auto 25px
+
+@media screen and (min-width: 640px) and (min-height: 640px)
+  navProgress
+    margin: 9% auto 6%
+
+@media screen and (min-width: 640px) and (min-height: 640px) and (orientation: landscape)
+  navProgress
+    margin: 5% auto 5%
+  

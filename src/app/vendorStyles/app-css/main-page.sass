@@ -1,0 +1,154 @@
+.fuzzfinders-app
+	.mainpage-wrapper
+		+set-size(100%, 100%)
+		display: block
+		position: relative
+		overflow: hidden
+		
+		background:
+			image: url('../assets/images/app/background.png')
+			position: 70% center
+			size: cover
+		.nav-trigger.nav-trigger-black
+			position: absolute
+			top: 30px
+			right: 30px
+			margin: 0
+		
+		.content-wrapper
+			display: block
+			padding-top: 20%
+
+		.brand
+			margin: 0 auto 45px
+			.brand-title
+				margin-top: 20px
+		
+		.btn
+			display: block
+			margin: 15px auto
+		
+		.btn-down
+			margin: 0
+			position: absolute
+			bottom: 0
+		
+
+		
+					
+					
+
+// Phone horizontal layout
+
+@media screen and (max-height: 550px)
+	.fuzzfinders-app
+		.mainpage-wrapper
+			.content-wrapper
+				padding-bottom: 80px
+			.brand
+				margin-bottom: 0
+				.logo
+					height: 70px
+				.brand-title
+					display: none
+
+@media screen and (max-height: 420px)
+	.fuzzfinders-app
+		.mainpage-wrapper
+			.content-wrapper
+				padding-top: 30px
+
+
+@media screen and (max-height: 390px)
+	.fuzzfinders-app
+		.mainpage-wrapper
+			.content-wrapper
+				padding-top: 50px
+				.btn
+					padding: 5px
+					height: 40px
+					font-size: 16px
+					width: 60%
+			.btn-down.btn-toggler
+				height: 50px
+				font-size: 18px
+
+@media screen and (max-height: 370px)
+	.fuzzfinders-app .mainpage-wrapper .content-wrapper
+		padding-top: 20px
+
+
+
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//				TABLET LAYOUT
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+
+
+
+@media screen and (min-width: 600px) and (min-height: 600px)
+	.fuzzfinders-app
+		.mainpage-wrapper
+
+			.content-wrapper
+				width: 50%
+				height: 450px
+				
+				position: absolute
+				top: 50%
+				left: 50%
+				
+				margin-top: -250px
+				margin-left: -25%
+				
+				padding: 0
+				 
+				.btn
+					&:not(.btn-down):not(.btn-big)
+						width: 100%
+						margin: 30px auto
+				.brand
+					margin-bottom: 65px
+
+
+			
+
+
+
+@media screen and (min-width: 1025px) and (min-height: 600px)
+	.fuzzfinders-app
+		.mainpage-wrapper .nav-trigger
+			display: none
+
+		&.navigation-purple, &.navigation-green, &.navigation-blue, &.navigation-blue-light, &.navigation-blue-dark, &.navigation-orange
+			.mainpage-wrapper
+				overflow-y: scroll
+				.btn-down
+					bottom: -70px
+					height: 0
+					padding: 0
+					overflow: hidden
+					opacity: 0
+				.fuzz-chat-wrapper
+					height: 0
+					overflow: hidden
+		
+		&.navigation-blue-dark
+			.mainpage-wrapper
+				overflow-y: hidden
+
+
+
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//				DESKTOP LAYOUT
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+@media screen and (min-width: 1025px) and (min-height: 600px)
+	.fuzzfinders-app
+		.mainpage-wrapper
+			.content-wrapper
+				.btn
+					&:not(.btn-down):not(.btn-big)
+						width: 370px

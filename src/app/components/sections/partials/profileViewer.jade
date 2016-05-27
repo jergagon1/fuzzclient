@@ -1,0 +1,14 @@
+navBlock
+.top-profile-wrapper
+  .locker
+    .blured-profile(style="background-image: url('{{profile.getUsersPhoto()}}')")
+  .photo-profile(style="background-image: url('{{profile.getUsersPhoto()}}')")
+table.table.table-striped
+  tr(ng-repeat='item in profile.description')
+    td {{item.def}}
+    td {{item.val}}
+
+//This button triggers provife editor modal
+button.btn.btn-blue.btn-big.btn-toggler
+  i.icon-edit
+  | Edit Profile & Settings

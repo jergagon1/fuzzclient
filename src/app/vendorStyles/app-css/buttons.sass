@@ -1,0 +1,198 @@
+.fuzzfinders-app
+	.btn
+		+set-size(72%, 52px)
+		+set-border-radius(5px)
+
+		cursor: pointer
+		font:
+			size: 22px
+			weight: 400
+		line-height: 22px
+		color: white
+		+transition(background, .15s)
+		.icon
+			font-size: 0.85em 
+			padding-right: 15px 
+
+	// COLORS
+
+	.btn-orange
+		background-color: $maroon_light
+		&:hover, &:focus, &.focus, &:active, &.active
+			background-color: rgba($maroon_light, 0.9)
+
+	.btn-green
+		background-color: $turquoise_dark
+		&:hover, &:focus, &.focus, &:active, &.active
+			background-color: rgba($turquoise_dark, 0.9)
+
+	.btn-blue
+		background-color: #3498DB
+		&:hover, &:focus, &.focus, &:active, &.active
+			background-color: rgba(#3498DB, 0.9)
+	
+	.btn-purple
+		background-color: $purple_light 
+		&:hover, &:focus, &.focus, &:active, &.active
+			background-color: rgba($purple_light, 0.9)
+
+	//SIZING
+	.btn-small
+		+set-size(150px, 40px)
+		font:
+			size: 16px 
+			weight: 700
+
+
+	.btn-big
+		+set-size(100%, 50px)
+		font-size: 20px
+		line-height: 28px
+
+	.btn-xbig
+		+set-size(325px, 50px)
+
+	// Special buttons
+
+	.btn-down
+		+set-size(100%, 60px)
+		+set-border-radius(0)
+		background-color: $asfalt_light 
+		box-shadow: 0px -2px 10px 0px rgba(127,140,141,0.50)
+		font-weight: 300 
+		&:hover, &:focus, &.focus, &:active, &.active
+			background-color: rgba($asfalt_light, 0.96)
+
+	.btn-message
+		margin: 0
+		+size(60px)
+		+set-border-radius(0)
+		background-color: $asfalt_light
+		font-size: 26px
+		padding: 4px 0 
+		display: inline-block
+	
+
+	//DROPDOWNS
+	.btn-dropdown
+		font:
+			size: 16px
+			weight: 400
+		
+		line-height: 40px 
+
+		color: $asfalt_light
+		
+		+set-size(100%, 40px)
+		margin: 0
+		background-color: #FFF
+		text-align: left
+		padding: 0 18px
+		position: relative
+		.caret
+			position: absolute
+			right: 18px
+			top: 50%
+			margin-top: -0.25em 
+			+transition(all, 0.2s)
+	
+	.open
+		.btn-dropdown
+			+border-bottom-radius(0)
+			.caret
+				+transform(rotate(180deg))
+
+	.btn-search
+		+border-top-radius(0)
+		.icon
+			margin-left: -10px
+
+	//NAVIGATION
+	.nav-trigger
+		@extend .nav-icon
+		+set-size(50px, 50px)
+		span
+			width: 25px
+			left: 13px
+			margin: auto
+			background: #000
+			&:nth-child(1)
+				top: 18px
+			&:nth-child(2)
+				top: 18+6px
+			&:nth-child(3)
+				top: 18+12px
+		&.open
+			span
+				&:nth-child(1), &:nth-child(3)
+					top: 25px
+	.nav-trigger-black
+		span
+			background: $asfalt_light
+		&.open span
+			background: $grey_light
+	.nav-trigger-white
+		span
+			background: $grey_light
+	
+	.back-arrow
+		+size(50px)
+		display: table 
+		.icon-back
+			display: table-cell
+			text-align: center
+			vertical-align: middle
+			color: white
+			
+			font-size: 18px
+
+	// COLORS
+
+	.btn-orange
+		background-color: $maroon_light
+		&:hover, &:focus, &.focus, &:active, &.active
+			background-color: rgba($maroon_light, 0.9)
+
+	.btn-green
+		background-color: $turquoise_dark
+		&:hover, &:focus, &.focus, &:active, &.active
+			background-color: rgba($turquoise_dark, 0.9)
+
+	.btn-blue
+		background-color: #3498DB
+		&:hover, &:focus, &.focus, &:active, &.active
+			background-color: rgba(#3498DB, 0.9)
+	
+	.btn-purple
+		background-color: $purple_light 
+		&:hover, &:focus, &.focus, &:active, &.active
+			background-color: rgba($purple_light, 0.9)
+
+@media screen and (max-width: 320px)
+	.fuzzfinders-app
+		.btn-big
+			+set-size(100%, 40px)
+			font-size: 16px
+			line-height: 20px
+			
+@media screen and (min-width: 641px) and (min-height: 640px)
+	.fuzzfinders-app
+
+		//SIZING
+		.btn-small
+			height: 50px
+			font:
+				size: 18px 
+				weight: 700
+
+		.btn-big
+			+set-size(100%, 50px)
+			min-width: 370px
+			font-size: 20px
+
+		.btn-xbig
+			+set-size(400px, 50px)
+		
+		.btn-dropdown
+			height: 50px
+			font-size: 20px

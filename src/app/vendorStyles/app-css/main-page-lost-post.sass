@@ -1,0 +1,506 @@
+.lost-pet-post-wrapper, .found-pet-post-wrapper
+	position: absolute
+	top: 0
+	left: 100%
+	+transition(left .5s ease-in-out)
+	+transform(translateZ(0))
+	+transform(translate3d(0,0,0))
+	-webkit-backface-visibility: hidden
+	-moz-backface-visibility: hidden
+	-ms-backface-visibility: hidden
+	backface-visibility: hidden
+
+	+size(100%)
+	overflow-x: hidden
+	overflow-y: hidden
+
+	background-color: $grey_light
+	z-index: 300
+	&.show
+		left: 0
+
+
+	.section-wrapper
+		display: block
+		width: 100%
+		height: calc(100% - 50px)
+		overflow-x: hidden
+		overflow-y: scroll
+
+		.map
+			display: block
+			+set-size(100%, 250px)
+			/*background:
+				image: url('../assets/images/app/map-demo-2.png')
+				position: center center
+				size: cover*/
+
+		.photo-wrapper
+			+set-size(90%, 200px)
+			+set-border-radius(5px)
+			margin: -25px auto 30px
+			box-shadow: 0px 0px 10px 0px rgba($agrey_dark, .5)
+			position: relative
+			z-index: 100
+			.photo
+				+set-size(100%, 160px)
+				+set-border-radius(5px)
+				background:
+					position: center center
+					size: cover
+
+			.label
+				display: block
+				margin: 0
+				padding: 0
+				font-size: 16px
+				font-weight: 500
+				letter-spacing: 0.05em
+				line-height: 40px
+				color: white
+				text-align: center
+
+
+
+
+		.post-description
+			width: 90%
+			margin: auto
+			+set-border-radius(5px)
+			background-color: white
+			padding-bottom: 40px
+			.header
+				padding: 15px
+
+				.face-lockup
+					display: inline-block
+					vertical-align: top
+					+size(65px)
+					+set-border-radius(50%)
+					margin: 0 15px
+					background:
+						position: center center
+						size: cover
+				.content
+					display: inline-block
+
+					p
+						margin: auto
+						font-size: 15px
+						font-weight: 500
+						line-height: 19px
+						color: $agrey_dark
+
+					.type
+						font-size: 24px
+						line-height: 24px
+						color: $asfalt_dark
+						opacity: 1
+
+			.table
+				td
+					opacity: 0.7
+					font-size: 16px
+					line-height: 35px
+					font-weight: 500
+					color: $asfalt_dark
+					padding: 0 0 0 30px
+					&:last-child
+						font-size: 18px
+						opacity: 0.8
+			.description
+				opacity: 0.8
+				font-size: 18px
+				font-weight: 400
+				line-height: 25px
+				color: $asfalt_dark
+				margin: 25px 25px 20px
+				text-align: left
+
+			.btn-big
+				display: block
+				width: calc(100% - 50px)
+				margin: 0 auto
+				font-weight: 400
+				i
+					margin-right: 10px
+
+
+		.social-share-wrapper
+			@extend .post-description
+			margin: 30px auto
+			padding: 20px 10px
+			background-color: white
+			+set-border-radius(5px)
+			p
+				margin: auto
+				font-size: 16px
+				font-weight: 400
+				line-height: 19px
+				color: $asfalt_dark
+				text-align: center
+			.buttons-wrapper
+				width: 160px
+				margin: auto
+				[class^="social-"]
+					+size(30px)
+					background:
+						position: center center
+						size: cover
+						color: transparent
+					+hide-shadow
+					+transition(opacity 0.3s ease-in)
+					border: none
+
+					&:hover
+						opacity: 0.9
+					margin-top: 20px
+					margin-right: 30px
+					&:last-child
+						margin-right: 0
+				.social-facebook
+					background-image: url("../assets/images/Social/Facebook-squared.png")
+
+				.social-twitter
+					background-image: url("../assets/images/Social/Twitter-squared.png")
+
+				.social-instagram
+					background-image: url("../assets/images/Social/Instagram-squared.png")
+
+		.comments-wrapper
+			width: 90%
+			margin: auto
+
+			h2
+				font-size: 24px
+				line-height: 24px
+				font-weight: 500
+				color: $asfalt_dark
+				text-align: center
+				margin-bottom: 30px
+
+			.comment
+				@extend .post-description
+				width: 100%
+				padding-bottom: 1px
+				margin-bottom: 30px
+				.header
+					.face-lockup
+						+size(40px)
+
+				.image
+					display: block
+					margin: 0 auto 30px
+					+size(160px)
+					+set-border-radius(5px)
+					box-shadow: 0px 0px 4px 0px rgba($agrey_dark, .5)
+					background:
+						position: center center
+						size: cover
+
+				.description
+					margin: 0 35px 30px
+
+				.location-sign
+					display: block
+					margin: 10px 30px 30px
+					text-align: left
+					font-size: 15px
+					font-weight: 500
+					line-height: 15px
+					color: $agrey_dark
+					i
+						margin-right: 0.5em
+
+		.post-comment
+			width: 90%
+			margin: auto
+			padding-bottom: 40px
+			h2
+				font-size: 24px
+				line-height: 24px
+				font-weight: 500
+				color: $asfalt_dark
+				text-align: center
+				margin-bottom: 20px
+			.textarea, .btn
+				margin-top: 0
+				margin-bottom: 20px
+			.textarea
+				min-height: 200px
+			.row
+				margin: 0
+				width: 100%
+				.col-xs-6
+					padding: 0 12px 0 0
+					&:last-child
+						padding: 0 0 0 12px
+
+					.btn
+						width: 100%
+						font-weight: 500
+						letter-spacing: .03em
+			.btn-xbig
+				width: 100%
+
+			.photo-wrapper
+				display: none
+			.location-wrapper
+				display: none
+
+			&.photo-added
+				.photo-wrapper
+					display: block
+					margin: 20px auto
+					width: 100% //!important
+					background:
+						size: cover
+						position: center center
+					position: relative
+
+					.btn-remove
+						position: absolute
+						top: 15px
+						right: 15px
+						+size(30px)
+						+set-border-radius(50%)
+						border: none
+						background:
+							color: rgba(white, .7)
+							image: url('../assets/images/icons/close.png')
+							repeat: no-repeat
+							position: center
+				.btn-photo
+					display: none
+				.col-xs-6
+					width: 100%
+					padding: 0
+					&:last-child
+						padding: 0
+
+			&.location-added
+				.location-wrapper
+					display: block
+					margin-bottom: 30px
+				.btn-location
+					display: none
+				.col-xs-6
+					width: 100%
+					padding: 0
+					&:last-child
+						padding: 0
+
+
+		//Post colors
+		.photo-wrapper-purple
+			background-color: $maroon_light
+
+		.photo-wrapper-green
+			background-color: $turquoise_dark
+
+/*.found-pet-post-wrapper
+	.section-wrapper .map
+		background-image: url('../assets/images/app/map-demo-3.png')*/
+
+
+@media screen and (max-width: 350px)
+	.lost-pet-post-wrapper, .found-pet-post-wrapper
+		.section-wrapper
+			.post-description
+				.table
+					td
+						padding: 0 0 0 20px
+						font-size: 14px
+						&:last-child
+							font-size: 16px
+
+
+			.post-comment
+				.row .col-xs-6 .btn
+					font-size: 14px
+				.btn-xbig
+					font-size: 20px
+
+
+@media screen and (max-height: 567px) and (orientation: landscape)
+	.lost-pet-post-wrapper, .found-pet-post-wrapper
+		.nav-block
+			height: 50px
+		.section-wrapper
+			.photo-wrapper-purple
+				max-width: 70%
+
+			.post-description, .comments-wrapper, .post-comment
+				max-width: 70%
+
+				.comment
+					max-width: 100%
+
+
+@media screen and (min-width: 375px)
+	.lost-pet-post-wrapper, .found-pet-post-wrapper
+		.section-wrapper .social-share-wrapper
+			padding: 30px 25px
+			p
+				font-size: 17px
+			.buttons-wrapper
+				width: 210px
+				margin: auto
+				[class^="social-"]
+					+size(40px)
+					margin-right: 40px
+
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//				TABLET LAYOUT
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+
+
+@media screen and (min-width: 640px) and (min-height: 640px)
+	.lost-pet-post-wrapper, .found-pet-post-wrapper
+		.section-wrapper
+			.map
+				height: 450px
+			.photo-wrapper
+				margin-top: -50px
+				margin-bottom: 80px
+				width: 70%
+				height: 360px
+				.photo
+					height: 300px
+				.label
+					font-size: 24px
+					line-height: 60px
+
+			.post-description
+				width: 70%
+				.header
+					padding: 15px 40px 35px
+					.face-lockup
+						margin: 0 25px
+						+size(90px)
+					.content
+						p
+							font-size: 18px
+							line-height: 22px
+
+						.type
+							margin-top: 10px
+							font-size: 28px
+							line-height: 34px
+				.table
+					td
+						font-size: 18px
+						line-height: 45px
+						padding: 0 0 0 80px
+						&:last-child
+							font-size: 20px
+				.description
+					margin: 40px 60px
+					font-size: 20px
+
+				.btn-big
+					width: 50%
+					min-width: 0
+
+			.social-share-wrapper
+				p
+					font-size: 18px
+					width: 320px
+					display: block
+					margin: auto
+
+			.comments-wrapper
+				width: 70%
+				h2
+					margin: 60px auto 40px
+				.comment
+					+clearfix()
+					width: 100%
+					//padding:
+					.header
+						padding-top: 20px
+						.face-lockup
+							+size(74px)
+						.content
+							padding-top: 10px
+					.image
+						+set-size(150px, 160px)
+						display: inline-block
+						vertical-align: top
+						margin: 0 20px 50px 60px
+					.description-wrapper
+						margin-bottom: 50px
+						p
+							margin: 5px 60px 20px
+					&.with-image
+						.description-wrapper
+							vertical-align: top
+							display: inline-block
+							width: calc(100% - 300px)
+							margin: 0
+							p
+								margin: 0
+								font-size: 18px
+							.location-sign
+								margin: 20px 0 60px 0
+
+			.post-comment
+				width: 70%
+				margin: 0 auto 60px
+				background-color: rgba(white, 0.5)
+				+set-border-radius(5px)
+
+				padding: 30px 60px 20px
+
+				h2
+					margin: 0 auto 40px
+
+				.btn, .textarea
+					margin-bottom: 30px
+
+
+
+@media screen and (min-width: 640px) and (min-height: 640px) and (orientation: landscape)
+	.lost-pet-post-wrapper, .found-pet-post-wrapper
+		.section-wrapper
+			.photo-wrapper, .post-description, .post-comment
+				width: 50%
+			.comments-wrapper
+				width: 50%
+				.comment
+					width: 100%
+
+
+
+
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//				DESKTOP LAYOUT
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+@media screen and (min-width: 1025px) and (min-height: 600px)
+	.lost-pet-post-wrapper, .found-pet-post-wrapper
+		top: 120px
+		left: 110%
+		+set-size(905px,800px)
+
+		&.show
+			top: 120px
+			+set-size(905px, auto)
+			min-height: 800px
+			left: calc( 50% - 403px )
+			margin-bottom: 100px
+			overflow-y: auto
+			box-shadow: 0px 5px 20px 0px rgba(0,0,0, .2)
+			.section-wrapper
+				overflow-y: auto
+
+				.photo-wrapper, .post-description, .post-comment
+					width: 70%
+				.comments-wrapper
+					width: 70%
+					.comment
+						width: 100%
+

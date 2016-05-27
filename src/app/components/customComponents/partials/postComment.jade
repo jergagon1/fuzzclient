@@ -1,0 +1,15 @@
+//postComment class options:
+  .with-image - if user attached image to the post
+.header
+  .face-lockup(style="background-image: url('{{item.profilePhotoUrl}}')")
+  .content
+    p Posted by {{item.profileName}}
+    p {{item.time}}
+// block exists if user attached image
+.image(style="background-image: url('{{item.profilePhotoUrl}}')")
+.description-wrapper
+  p.description {{item.text}}
+  // block exists if user attached location
+  .location-sign
+    i.icon-location
+    | Location point added

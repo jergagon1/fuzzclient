@@ -1,0 +1,40 @@
+navBlock
+h3.settings-title Profile info
+.profile-edit-wrapper
+	#photo-holder(style="background-image: url('{{profile.getUsersPhoto()}}')")
+	button#upload-profile-image.btn.btn-big.btn-blue(data-target="#photo-holder") Upload another Image
+
+form#general-settings.profile-edit-wrapper
+	.form-group
+		label.input-label(for='user-name') Name
+		input.input.form-control#user-name(placeholder="{{profile.getUsersName()}}")
+	.form-group
+		label.input-label(for='email') E-mail
+		input.input.form-control#email(placeholder="{{profile.getUsersMail()}}")
+	.form-group
+		label.input-label(for='zipcode') Zip Code
+		input.input.form-control#zipcode(placeholder="{{profile.getUsersZip()}}")
+h3.settings-title Password
+form#password-settings.profile-edit-wrapper
+	.form-group
+		input.input.form-control(placeholder="Old password")
+	.form-group
+		input.input.form-control(placeholder="New password")
+	.form-group
+		input.input.form-control(placeholder="Confirm password")
+h3.settings-title Notifications
+form#notification-settings.profile-edit-wrapper
+	.form-group
+		label.input-label(for='fuzz-flash-dropdown') FuzzFlash
+		.dropdown#fuzz-flash-dropdown
+			button#fuzz-flash.btn.btn-dropdown.dropdown-toggle(type="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true")
+				| 1.5 miles from me
+				span.caret
+			ul.dropdown-menu(aria-labelledby="fuzz-flash")
+				li
+					a.active(href='#') 1.5 miles
+				li
+					a(href='#') 5 miles
+				li
+					a(href='#') 10 miles
+button.btn.btn-down.btn-down-small.btn-green.btn-apply(data-target='.file-edit-wrapper', data-toggle='show') Update profile

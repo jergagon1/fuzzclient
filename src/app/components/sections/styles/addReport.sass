@@ -1,0 +1,240 @@
+addReport
+  position: absolute
+  top: 0
+  left: 100%
+  +transition(left .5s ease-in-out)
+  +transform(translateZ(0))
+  +transform(translate3d(0,0,0))
+  -webkit-backface-visibility: hidden
+  -moz-backface-visibility: hidden
+  -ms-backface-visibility: hidden
+  backface-visibility: hidden
+  +size(99%)
+  overflow-x: hidden
+  overflow-y: scroll
+  background-color: $grey_light
+  z-index: 200
+  &.show
+    left: 0
+    +size(100%)
+    .ancete-wrapper.step-1 .step-wrapper-1
+      height: auto
+  .section-wrapper
+    display: block
+    width: 100%
+    height: calc(100% - 80px)
+    overflow-x: hidden
+    overflow-y: scroll
+  .ancete-wrapper
+    //Toggling ancete
+    position: relative
+    width: 100%
+    min-height: calc( 100% - 91px)
+    overflow-x: hidden
+    overflow-y: hidden
+    [class^="step-wrapper-"]
+      display: block
+      position: absolute
+      top: 0
+      left: 100%
+      background-color: $grey_light
+      width: 100%
+      height: calc(100% - 32px)
+      overflow: hidden
+      padding: 0 40px
+      +transition(all .3s ease-in)
+      .btn
+        &:last-child
+          margin-bottom: 20px 
+    &.step-1
+      .step-wrapper-1
+        left: 0
+        height: auto
+    &.step-2
+      .step-wrapper-2
+        left: 0
+        height: auto
+    &.step-3
+      .step-wrapper-3
+        left: 0
+        height: auto
+        +animation-delay(.5s)
+    .empty
+      .btn-new
+        display: block
+      .btn-done
+        display: none
+    .done
+      .btn-new
+        display: none
+      .btn-done
+        display: block
+    .title
+      margin: 0 0 15px
+    .description
+      margin-bottom: 15px
+      padding: 0 10px
+    .step-wrapper-1
+      .btn-big
+        margin: 20px auto
+    .step-wrapper-2
+      .description
+        margin-top: 20px
+    .step-wrapper-3
+      .Pet-description
+        .dropdown
+          margin: 0 auto 25px
+        .textarea
+          height: 120px
+        .extra-area
+          display: none
+        .input, .textarea
+          +placeholder
+            opacity: 1
+          margin-bottom: 25px 
+        .btn-big
+          letter-spacing: 0.05em
+          position: relative
+          font-weight: 300 
+          i
+            position: absolute
+            left: 15px
+            top: 0.8em
+        &.extra-open
+          .btn-subarea
+            display: none
+          .extra-area
+            display: block
+            .row
+              margin: 0
+              padding-bottom: 25px
+              .col-xs-6
+                &:nth-child(odd)
+                  padding: 0 15px 0 0
+                &:nth-child(even)
+                  padding: 0 0 0 15px
+              .input
+                margin: 0
+            .dropdown-small
+              margin: 0
+              width: 100%
+              .btn-dropdown
+                margin: 0
+
+@media screen and (max-height: 567px) and (orientation: landscape)
+  addReport
+    .ancete-wrapper
+      .title, .description
+        margin: 0 auto 10px
+      .step-wrapper-1
+        padding: 0 20%
+        .btn-big
+          margin: 10px auto
+
+@media screen and (max-height: 567px)
+  addReport
+    .section-wrapper
+      height: calc(100% - 60px)
+
+@media screen and (min-width: 640px) and (min-height: 640px)
+  addReport
+    .ancete-wrapper
+      min-height: calc(85% - 50px)
+      [class^="step-wrapper-"]
+        min-height: calc(100% - 32px)
+        height: auto
+      .title
+        margin-bottom: 50px
+      .description
+        margin-bottom: 45px
+      .step-wrapper-1
+        padding: 0 25%
+        .btn-big
+          margin: 50px auto
+        .step-wrapper-2
+          padding: 0 45px
+          .description
+            margin: 25px auto
+          .btn-big
+            margin: 30px auto 0
+        .step-wrapper-3
+          padding: 0 15%
+          .Pet-description
+            .textarea
+              height: 250px
+            .dropdown, .textarea, .input, .btn-big
+              margin: 40px auto
+            .dropdown.open
+              .dropdown-menu
+                &:before
+                  content: ' '
+                  z-index: -1
+                  position: absolute
+                  top: -50px
+                  left: 0
+                  right: 0
+                  bottom: 0
+                  box-shadow: 0px 0px 4px 0px rgba($agrey_dark, .5)
+                  +transition(box-shadow .3s ease-in)
+                  +set-border-radius(5px)
+            &.extra-open
+              .extra-area
+                .row
+                  padding: 0
+                  margin: 50px auto
+        
+@media screen and (min-width: 640px) and (min-height: 640px) and (orientation: landscape)
+  addReport
+    .section-wrapper
+      .progress-step
+        margin: 5% auto 5%
+      .ancete-wrapper
+        min-height: calc(80% - 50px)
+        
+        [class^="step-wrapper-"]
+          height: calc(100% - 150px)
+        
+        &.step-1
+          .step-wrapper-1
+            height: auto
+        &.step-2
+          .step-wrapper-2
+            height: auto
+        &.step-3
+          .step-wrapper-3
+            height: auto
+        .title
+          margin-bottom: 20px
+        .description
+          margin-bottom: 25px
+        .step-wrapper-1
+          padding: 0 30%
+          .btn-big
+            margin: 30px auto
+        .step-wrapper-2
+          padding: 0 10%
+          .description
+            margin: 25px auto
+          .btn-big
+            margin: 30px auto 0
+
+@media screen and (min-width: 1025px) and (min-height: 600px)
+  addReport
+    top: 120px
+    left: 110%
+    +set-size(905px, 800px)
+    &.show
+      top: 120px
+      +set-size(905px, auto)
+      min-height: 800px
+      left: calc( 50% - 453px )
+      margin-bottom: 100px
+      overflow-y: auto
+      box-shadow: 0px 5px 20px 0px rgba(0,0,0, .2)
+      .section-wrapper
+        overflow-y: auto
+      .ancete-wrapper
+        [class^="step-wrapper-"]
+          height: 400px
+      .btn-big
+        min-width: 0

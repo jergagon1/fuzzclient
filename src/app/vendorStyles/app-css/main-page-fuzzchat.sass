@@ -1,0 +1,124 @@
+.fuzzfinders-app .mainpage-wrapper
+	.fuzz-chat-wrapper
+		+transition(left .5s ease-in-out)
+		+transform(translateZ(0))
+		+transform(translate3d(0,0,0))
+		-webkit-backface-visibility: hidden
+		-moz-backface-visibility: hidden
+		-ms-backface-visibility: hidden
+		backface-visibility: hidden
+		position: absolute
+		top: 100%
+		left: 0
+		+size(100%)
+		overflow: hidden
+		background: $grey_light
+		+transition(top .6s ease-in) 
+		z-index: 400
+		&.show
+			top: 0
+
+		.chat-wrapper
+			height: calc(100% - 130px)
+			overflow-y: scroll
+			padding: 30px 30px 30px 20px
+			.message-wrapper
+				+clearfix
+			.face-lockup
+				display: block
+				+size(10vw)
+				+set-border-radius(50%)
+				
+				float: left
+
+				background:
+					size: cover
+					position: center
+					repeat: no-repeat
+			
+			.text-holder
+				display: block
+				width: 82%
+				float: right
+				background-color: white 
+				+set-border-radius(5px)
+				margin-bottom: 30px
+				padding: 0 15px
+				position: relative
+				&:before
+					content: ' '
+					display: block
+					+set-size(7px, 16px)
+					background-image: url('../assets/images/app/chat-message-arrow.png')
+					
+					position: absolute
+					top: 12px
+					left: -7px
+
+					.time
+						margin: 5px auto 15px
+						
+				
+		
+		.message-input
+			position: absolute
+			bottom: -11px
+			
+			.btn-message
+				margin: 0
+				padding: 4px 0 
+				display: inline-block
+
+
+
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//				TABLET LAYOUT
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+
+
+@media screen and (min-width: 640px) and (min-height: 640px)
+	.fuzzfinders-app .mainpage-wrapper
+		.fuzz-chat-wrapper
+			.chat-wrapper
+				height: calc( 100% - 140px)
+				padding: 50px 100px
+				.message-wrapper
+					.face-lockup
+						+size(8vw)
+					.text-holder
+						width: 84%
+						padding: 20px 35px 10px
+						
+						.name
+							margin: 0 auto 15px
+			.message-input
+				input
+					height: 60px
+
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//				DESKTOP LAYOUT
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+@media screen and (min-width: 1025px) and (min-height: 600px)
+	.fuzzfinders-app .mainpage-wrapper
+		.fuzz-chat-wrapper
+			+set-size(905px, 800px)
+			left: calc( 50% - 403px )
+			
+			.chat-wrapper
+				.message-wrapper
+					.face-lockup
+						+size(70px)
+					.text-holder
+						width: 590px
+
+			&.show
+				top: 120px
+				+set-size(905px, calc(100% - 120px))
+				min-height: auto
+				overflow-y: hidden
+				box-shadow: 0px 5px 20px 0px rgba(0,0,0, .2)
+				

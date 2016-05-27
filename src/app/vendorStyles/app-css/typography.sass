@@ -1,0 +1,178 @@
+.fuzzfinders-app
+	
+	// Brands and titles
+	.brand
+		.logo
+			+set-size(75px, 85px)
+			background:
+				image: url('../assets/images/logo-heading.png')
+				position: center center
+				repeat: no-repeat
+				size: contain
+			display: block
+			margin: 20px auto
+		.brand-title
+			font-size: 31px
+			line-height: 37px
+			color: $asfalt_dark
+			font-weight: 500
+			text-align: center
+			position: relative
+			.alt, .trademark
+				color: $agrey_dark
+			.trademark
+				font-size: 13px
+				font-weight: 900 
+				position: absolute
+				top: -0.6em
+	
+
+	.section-title
+		font-size: 31px
+		line-height: 37px
+		color: white
+		font-weight: 500
+		text-align: center
+		.alt
+			padding-left: 2px 
+	.fuzz-feed
+		color: #34495F
+		.alt
+			color: #ECF0F1
+	.fuzz-file
+		color: #7AC6FB
+		.alt
+			color: #F0F3F4
+
+	.fuzz-file
+		color: #7AC6FB
+		.alt
+			color: #F0F3F4
+	
+	.fuzz-fund
+		color: #5A2116
+		opacity: .8
+		.alt
+			color: #ECF0F1
+	
+
+	// Page content
+	.title
+		font-size: 20px
+		line-height: 28px
+		color: #506A86
+		font-weight: 500
+		text-align: center
+	.title-bold
+		@extend .title
+		font-weight: 700
+		color: white
+	.description
+		font-size: 14px
+		line-height: 20px
+		color: #2C3E51
+		font-weight: 400
+		text-align: center
+	.name
+		font-size: 16px
+		line-height: 19px
+		color: $asfalt_light
+		font-weight: 500
+
+	.message
+		font-size: 16px
+		line-height: 25px
+		color: $asfalt_light
+		font-weight: 400
+		opacity: .9
+	.time
+		font-size: 12px
+		line-height: 12px
+		color: $asfalt_light
+		font-weight: 700
+		opacity: .4
+	.text-feed
+		font-size: 18px
+		line-height: 25px
+		color: $asfalt_dark
+		font-weight: 400
+	
+	.read-more
+		@extend .text-feed
+		color: $blue_light
+		font-size: 14px
+		font-weight: 500 
+		+transition(opacity, 0.2s)
+		&:hover, &:focus, &.focus, &:active, &.active
+			opacity: .8
+	.type
+		font-size: 16px
+		line-height: 22px
+		color: $asfalt_dark
+		font-weight: 700
+		opacity: .7
+	.data
+		@extend .type
+		opacity: .8
+	.input-label
+		font-size: 14px
+		line-height: 25px
+		color: $asfalt_dark
+		font-weight: 700
+	.settings-title
+		font-size: 24px
+		line-height: 29px
+		color: $asfalt_dark
+		font-weight: 700
+
+
+@media screen and (min-width: 640px) and (min-height: 640px)
+	.fuzzfinders-app
+		// Brands and titles
+		.brand
+			.logo
+				+set-size(74px, 89px)
+			.brand-title
+				font-size: 33px
+				.trade-mark
+					font-size: 14px
+			
+		.section-title
+			font-size: 31px
+			line-height: 37px
+			color: white
+			font-weight: 500
+			text-align: center
+			.alt
+				padding-left: 2px 
+	    
+		// Page content
+		.title
+			font-size: 28px       
+		.description
+			font-size: 18px
+			line-height: 25px
+		.name
+			font-size: 22px
+			line-height: 27px
+
+		.message
+			font-size: 18px
+			line-height: 25px
+
+		.time
+			font-size: 16px
+			line-height: 19px
+		.text-feed
+			font-size: 20px
+			line-height: 28px
+		.type
+			font-size: 16px
+			line-height: 22px    
+		.input-label
+			font-size: 18px
+			line-height: 25px
+
+		.settings-title
+			font-size: 28px
+			line-height: 36px

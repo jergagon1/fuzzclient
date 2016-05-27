@@ -1,0 +1,21 @@
+.dropdown.last-seen-dropdown
+  button#lost-pet-seen-btn.btn.btn-dropdown.dropdown-toggle(type="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true")
+    | Time last seen
+    span.caret
+  ul.dropdown-menu(aria-labelledby="lost-pet-seen-btn")
+    li
+      a(href='#') just now
+    li
+      a(href='#') 1 hour ago
+    li
+      a(href='#') 2 hours ago
+    li
+      a(href='#') 12 hours ago
+    li
+      a(href='#') 24 hours ago
+    li
+      a(href='#') 48 hours ago
+    li
+      a.custom-date-trigger custom date/time
+.form-group.last-seen-custom
+  input.input.input-small.form-control(placeholder="MM/DD HH:MM")

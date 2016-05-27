@@ -1,0 +1,48 @@
+chatMessage
+  +clearfix()
+  .face-lockup
+    display: block
+    +size(10vw)
+    +set-border-radius(50%)
+    float: left
+    background:
+      size: cover
+      position: center
+      repeat: no-repeat
+  .text-holder
+    display: block
+    width: 82%
+    float: right
+    background-color: white 
+    +set-border-radius(5px)
+    margin-bottom: 30px
+    padding: 0 15px
+    position: relative
+    &:before
+      content: ' '
+      display: block
+      +set-size(7px, 16px)
+      background-image: url('../assets/images/app/chat-message-arrow.png')
+      position: absolute
+      top: 12px
+      left: -7px
+      .time
+        margin: 5px auto 15px
+        
+@media screen and (min-width: 640px) and (min-height: 640px)
+  chatMessage
+    .face-lockup
+      +size(8vw)
+    .text-holder
+      width: 84%
+      padding: 20px 35px 10px
+      .name
+        margin: 0 auto 15px 
+
+
+@media screen and (min-width: 1025px) and (min-height: 600px)
+  chatMessage
+    .face-lockup
+      +size(70px)
+    .text-holder
+      width: 590px

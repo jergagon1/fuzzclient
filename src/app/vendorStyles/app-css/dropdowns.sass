@@ -1,0 +1,32 @@
+.fuzzfinders-app
+	.dropdown
+		display: block
+		margin: 10px auto
+		width: 100%
+		
+		.dropdown-menu
+			min-width: 0
+			width: 100%
+			margin-top: 0 !important
+			+border-top-radius(0)
+			background: white
+			
+			li a
+				padding-left: 30px 
+				color: $asfalt_dark
+				font-weight: 500
+				&:hover, &:focus, &.focus
+					background-color: $grey_light
+				&:active, &.active
+					background-color: #FAFBFB 
+	.dropdown-small
+		width: 147px
+
+@media screen and (min-width: 640px) and (min-height: 640px)
+	.fuzzfinders-app
+		.dropdown
+			display: block
+			margin: 10px auto
+			.dropdown-menu li
+				font-size: 18px
+		

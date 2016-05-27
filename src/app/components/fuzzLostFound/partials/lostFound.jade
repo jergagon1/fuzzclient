@@ -1,0 +1,120 @@
+form(name='$ctrl.lostForm')
+  md-content
+    md-tabs(md-dynamic-height, md-border-bottom)
+      md-tab(label="one")
+        md-content.md-padding
+          h3 Tab One
+          p.description Photos are the best way to identify a missing pet!
+          .photo-wrapper
+            .form-group.image-uploader.wrapper-cat.empty
+              .preview-holder(ngf-drop, ng-model="$ctrl.files", ng-show='$ctrl.files.length == 0')
+                i.icon-photo-edit
+              .preview-holder(ngf-thumbnail="$ctrl.files[0]", ngf-size="{quality: 0.9}", ngf-as-background="true", ng-show='$ctrl.files.length != 0')
+              btn.btn.btn-big.btn-green.btn-new(
+              ng-model="$ctrl.files"
+              ngf-multiple="true"
+              ngf-select="$ctrl.uploadMultiple($files)"
+              ngf-pattern="'image/*'"
+              ) {{$ctrl.files.length != 0 ? 'Upload Another Photo' : 'Upload Photo'}}
+              btn.btn.btn-big.btn-blue.btn-new.btn-toggler {{$ctrl.files.length != 0 ? 'Continue' : 'Continue without Photo'}}
+      md-tab(label="two")
+        md-content.md-padding(ng-if='$ctrl.map')
+          h3.title Enter last known location
+          md-input-container.md-block
+            input(
+            type="text",
+            name='locationLost'
+            ng-model="$ctrl.locations.lost.name",
+            ng-autocomplete,
+            details='$ctrl.locations.lost.details'
+            )
+
+          ui-gmap-google-map.lost-map(
+          center='$ctrl.map.coordinates.center',
+          zoom='$ctrl.map.coordinates.zoom',
+          options='$ctrl.map.options'
+          events='$ctrl.map.events'
+          )
+            ui-gmap-marker(
+            idKey='1',
+            coords='$ctrl.map.markerSettings.position',
+            options='$ctrl.map.markerSettings.options'
+            )
+      md-tab(label="three")
+        md-content.md-padding
+          h2.title Describe your pet
+          .Pet-description.extra-open
+            .form-group
+              select.form-control(name='petType', ng-model='$ctrl.petType')
+                option Pet Type
+                option(value='Dog') Dog
+                option(value='Cat') Cat
+                option(value='Bird') Bird
+                option(value='Other') Other
+            .form-group
+              input.form-control(
+              type='text',
+              placeholder='Pet name',
+              name='petName'
+              ng-model='$ctrl.lost.petName'
+              )
+            .form-group
+              select.form-control(name='lastSeen', ng-model='$ctrl.lastSeen')
+                option Time last seen
+                option(value='now') Just Now
+                option(value='1') 1 hour ago
+                option(value='2') 2 hour ago
+                option(value='12') 12 hour ago
+                option(value='24') 24 hour ago
+            .form-group
+              textarea.form-control(
+              placeholder='Briefly describe the incident',
+              name='incidentDesc'
+              ng-model='$ctrl.lost.incidentDesc'
+              )
+            .form-group(ng-show='$ctrl.extraDetails')
+              .row
+                .col-xs-6
+                  select.form-control(name='gender', ng-model='$ctrl.petGender')
+                    option Gender
+                    option(value='Male') Male
+                    option(value='Female') Female
+                .col-xs-6
+                  select.form-control(name='petSize')
+                    option Size
+                    option(value='Small') Small
+                    option(value='Medium') Medium
+                    option(value='Large') Large
+              .row
+                .col-xs-6
+                  select.form-control(name='$ctrl.petAge', ng-model='$ctrl.petAge')
+                    option Age
+                    option(value='Baby') Baby
+                    option(value='Young') Young
+                    option(value='Adult') Adult
+                    option(value='Senior') Senior
+                .col-xs-6
+                  input.form-control(
+                  type='text',
+                  placeholder='Pet color',
+                  name='petColor',
+                  ng-model='$ctrl.petColor'
+                  )
+              input.form-control(
+              type='text',
+              placeholder='Pet Breed',
+              name='breed',
+              ng-model='$ctrl.breed'
+              )
+              input.form-control(
+              type='text',
+              placeholder='Additional Keywords',
+              name='keywords',
+              ng-model='$ctrl.keywords'
+              )
+            button.btn.btn-big.btn-green.btn-subarea(
+            ng-click='$ctrl.showDetailsForm()',
+            ng-show='!$ctrl.extraDetails',
+            ) Add pet Details
+              i.icon-plus.pull-left
+            button.btn.btn-big.btn-blue(ng-click='$ctrl.submitForm("lostForm")') Submit

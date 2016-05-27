@@ -1,0 +1,126 @@
+.fuzzfinders-app
+	.fund
+		background-color: $grey_light
+		display: block
+		position: relative
+		padding: 0 40px 10px
+		min-height: calc(100% - 70px)
+		.title
+			font-size: 24px
+			color: #506A86
+			padding: 40px 0 30px
+			margin: 0
+		
+		p
+			font:
+				size: 16px
+				weight: 400
+			line-height: 22px
+			color: $asfalt_dark
+			margin-bottom: 22px 
+
+		.fund-donate
+			margin-top: 40px
+			text-align: center
+			.btn
+				font-weight: 500
+				margin-bottom: 30px
+				font-size: 17px
+				line-height: 17px
+				width: 165px
+				height: 43px
+				letter-spacing: 1px
+				text-transform: uppercase
+			&:after
+				content: ' '
+				display: block
+				height: 90px
+				background:
+					image: url('../assets/images/fund2.png')
+					repeat: no-repeat, no-repeat
+					position: center center
+
+@media screen and (max-width: 320px)
+	.fuzzfinders-app .fund
+		padding: 0 20px
+
+
+
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//				TABLET LAYOUT
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+
+
+@media screen and (min-width: 640px) and (min-height: 640px)
+	.fuzzfinders-app
+		position: relative
+		background-color: $grey_light
+		.fund
+			+set-size(540px, 580px)
+			position: absolute
+			top: 50%
+			left: 50%
+			
+			margin-top: -270px
+			margin-left: -290px
+			
+			min-height: 0
+			
+			p
+				margin-left: 30px
+
+
+
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//				DESKTOP LAYOUT
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+
+@media screen and (min-width: 1025px) and (min-height: 600px)
+	.fuzzfinders-app.fund-page
+		background-color: transparent
+		&:before
+			content: ''
+			display: block
+			position: fixed
+			top: 0
+			left: 0
+			z-index: -1
+			+set-size(100vw, 100vh)
+			background:
+				image: url('../assets/images/app/background.png')
+				position: 70% center
+				size: cover
+		
+		-ms-overflow-y: scroll 
+		overflow-y: scroll 
+		
+
+		.fund-wrapper
+			position: absolute
+			top: 120px
+			+set-size(905px, calc(100vh - 200px))
+			padding-bottom: 30px
+			margin-bottom: 50px
+			left: calc( 50% - 403px )
+			z-index: 100
+			background-color: $grey_light
+			.nav-block
+				.brand-logo, .nav-trigger
+					display: none
+				.section-title
+					line-height: 70px
+			.table
+				margin: 140px auto 90px
+		
+
+			.file-edit-wrapper.show
+				height: auto
+				-ms-overflow-y: auto 
+				overflow-y: auto 
+
+			.description-block
+				margin-top: -230px

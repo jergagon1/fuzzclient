@@ -1,0 +1,88 @@
+.image-uploader
+  .preview-holder
+    display: block
+    +set-size(100%, 170px)
+    +set-border-radius(5px)
+    border: 2px solid $agrey_light
+    background:
+      color: white
+      position: 50% 50%
+      repeat: no-repeat no-repeat
+    position: relative    
+    i
+      position: absolute
+      color: rgba(black, .6)
+      font-size: 30px
+    .btn-remove
+      display: none
+  &.empty
+    &.wrapper-cat
+      .preview-holder
+        background-image: url('../assets/images/app/wrapper-cat.png')
+        i
+          bottom: 25px
+          right: 25px
+    &.wrapper-dog
+      .preview-holder
+        background-image: url('../assets/images/app/wrapper-dog.png')
+        i
+          top: 25px
+          right: 25px
+  &.done
+    .preview-holder
+      border: none
+      background-position: cover
+      background-size: cover
+      i
+        display: none
+
+@media screen and (max-width: 320px)
+  .image-uploader
+    &.empty
+      .preview-holder
+        height: 140px
+        background:
+          size: auto 90%
+          position: 40% 50%
+
+
+@media screen and (max-height: 567px) and (orientation: landscape)
+  .image-uploader
+    &.empty
+      .preview-holder
+        height: 120px
+        background-size: auto 70%
+        background-position: center center
+
+
+@media screen and (min-width: 640px) and (min-height: 640px)
+  .image-uploader
+    .preview-holder
+      height: 220px
+
+//Comment preview styles
+.image-uploader.comment-preview
+  display: none
+  &.photo-added
+    display: block
+    .preview-holder
+      display: block
+      margin: 20px auto
+      width: 100%
+      background:
+        size: cover
+        position: center center
+      position: relative
+      
+      .btn-remove
+        position: absolute
+        top: 15px
+        right: 15px
+        +size(30px)
+        +set-border-radius(50%)
+        border: none
+        background:
+          color: rgba(white, .7)
+          image: url('../assets/images/icons/close.png')
+          repeat: no-repeat
+          position: center

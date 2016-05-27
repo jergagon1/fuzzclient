@@ -1,0 +1,58 @@
+navBlock
+  +set-size(100%, 80px)
+  +display(flex)
+  +justify-content(space-between)
+  +align-items(center)
+  padding: 5px
+  .nav-trigger
+    margin: 0
+  h2
+    margin: 0
+    font-size: 22px
+    line-height: 22px
+    color: white
+    font-weight: 400
+    letter-spacing: 1.2px
+    text-transform: uppercase
+  .brand-logo
+    font-size: 45px
+    color: $grey_light
+    padding-left: 7px
+.nav-block-orange
+  background-color: $maroon_light
+.nav-block-green
+  background-color: $turquoise_dark
+.nav-block-blue
+  background-color: #3498DB
+.nav-block-dark-blue
+  background-color: $asfalt_light
+.nav-block-purple
+  background-color: $purple_light
+.nav-block-blue-dark
+  background-color: $blue_dark 
+
+@media screen and (max-width: 350px)
+  navBlock 
+    h2
+      font-size: 18px
+
+@media screen and (max-height: 567px)
+  navBlock
+    height: 60px
+
+@media screen and (max-height: 567px) and (orientation: landscape)
+  navBlock
+    height: 50px
+
+@media screen and (min-width: 1025px) and (min-height: 600px)
+  navBlock
+    +display(block)
+    position: relative
+    .back-arrow
+      position: absolute
+      top: 15px
+      left: 15px
+    .title, .section-title
+      line-height: 70px
+    .nav-trigger
+      display: none

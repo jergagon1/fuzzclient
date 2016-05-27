@@ -1,0 +1,84 @@
+//navBlock class options:
+  .lost-pet-page-wrapper
+  .found-pet-page-wrapper 
+
+navBlock
+//Please, add class (look at navBlock description)
+.section-wrapper
+  navProgress //Please, add class (look at navProgress description)
+  .ancete-wrapper.step-1
+    .step-wrapper-1
+      h3.title Snap a Photo
+      p.description Photos are the best way to identify a&nbsp;missing&nbsp;pet!
+      .photo-wrapper 
+        .form-group.empty //Change empty to done if photo provided
+          photoViewer //Please, add class (look at photoViewer description)
+          btn.btn.btn-big.btn-green.btn-new Upload Photo
+          btn.btn.btn-big.btn-blue.btn-new Continue without Photo
+          btn.btn.btn-big.btn-green.btn-done Upload another Photo
+          btn.btn.btn-big.btn-blue.btn-done Continue
+    .step-wrapper-2
+      h3.title Enter last known location
+      .form-group.empty
+        input.input.form-control(placeholder="Type address here")
+        p.description Or drag map pin to location
+        mapSingle
+        button.btn.btn-big.btn-blue.btn-new Use My Current Location
+        button.btn.btn-big.btn-green.btn-done Use Location Provided
+    .step-wrapper-3
+      h3.title Describe your pet
+      form.Pet-description
+        .dropdown
+          button#lost-pet-type-btn.btn.btn-dropdown.dropdown-toggle(type="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true")
+            | Pet type
+            span.caret
+          ul.dropdown-menu(aria-labelledby="lost-pet-type-btn")
+            // petTypeList = ['Dog', 'Cat', 'Bird', 'Other']
+            li(ng-repeat='item in petTypeList')
+              a(href='#') item
+        // This for group only for lost-pet-page-wrapper
+        .form-group
+          input.input.input-small.form-control(placeholder="Pet name")
+        datetimePicker
+        .form-group
+          textarea.textarea.form-control(placeholder="Briefly describe the incident", rows="2")
+        //This button toggles to .Pet-description class .extra-open
+        button.btn.btn-big.btn-green.btn-subarea(type='button')
+          i.icon-plus
+          | Add Pet Details
+        .extra-area
+          .row
+            .col-xs-6
+              .dropdown.dropdown-small
+                button#lost-gender-btn.btn.btn-dropdown.dropdown-toggle(type="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true")
+                  | Gender
+                  span.caret
+                ul.dropdown-menu(aria-labelledby="lost-gender-btn")
+                  // petSexList = ['Male', 'Female']
+                  li(ng-repeat='item in petSexList')
+                    a(href='#') item
+            .col-xs-6
+              .dropdown.dropdown-small
+                button#lost-size-btn.btn.btn-dropdown.dropdown-toggle(type="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true")
+                  | Size
+                  span.caret
+                ul.dropdown-menu(aria-labelledby="lost-size-btn")
+                  // petSizeList = ['Small', 'Medium', 'Large']
+                  li(ng-repeat='item in petSizeList')
+                    a(href='#') item
+          .row
+            .col-xs-6
+              .dropdown.dropdown-small
+                button#lost-age-btn.btn.btn-dropdown.dropdown-toggle(type="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true")
+                  | Age
+                  span.caret
+                ul.dropdown-menu(aria-labelledby="lost-age-btn")
+                  // petAgeList = ['Baby', 'Young', 'Adult', 'Senior']
+                  li(ng-repeat='item in petSizeList')
+                    a(href='#') item
+
+            .col-xs-6
+              input.input.input-small.form-control(placeholder="Pet color")
+          input.input.input-small.form-control(placeholder="Pet Breed")
+          input.input.input-small.form-control(placeholder="Additional keywords")
+        button.btn.btn-big.btn-blue Submit

@@ -1,0 +1,51 @@
+.fuzzfinders-app
+	.input
+		+set-size(100%, 40px)
+		padding: 4px 18px 7px
+		border: none
+		margin: auto
+		font:
+			size: 16px
+			weight: 400
+		
+		color: $asfalt_light
+		
+		+placeholder
+			color: $asfalt_light
+			opacity: 0.8
+	
+		&:focus, &.focus
+			border: 1px solid rgba($asfalt_light, 0.7)
+	
+	.textarea
+		@extend .input
+		height: 160px
+		padding: 11px 18px
+		resize: vertical
+	
+	.message-input
+		display: block
+		+set-size(100%, 60px)
+		box-shadow: 0px -2px 4px 0px rgba(127, 140, 141, 0.5)
+		position: relative
+		.form-control
+			@extend .input
+			+set-border-radius(0)
+			height: 60px
+			display: inline-block
+			width: calc(100% - 60px)
+			margin: 0
+			padding-left: 30px 
+			background-color: #ECF0F1 
+		.btn-message
+			position: absolute
+			right: 0
+			
+@media screen and (min-width: 640px) and (min-height: 640px)
+	.fuzzfinders-app
+		.input
+			height: 50px
+			font-size: 20px
+		.textarea
+			height: 250px
+

@@ -1,0 +1,158 @@
+#sign-modal
+  .modal-content
+    max-width: 450px
+    background-color: $grey-light
+    position: relative
+    margin: auto
+  .close
+    background-image: url("../assets/images/icons/close.png")
+    position: absolute
+    top: 0px
+    right: 15px
+    +size(15px)
+    margin: 0 !important
+  .modal-body
+    padding: 0
+    background-color: $grey-light
+    .brand
+      margin: 25px auto
+      +set-size(45px, 50px)
+      background:
+        image: url("../assets/images/logo.png")
+        position: center center
+        size: 100% 100%
+    .nav-tabs
+      li
+        width: 50%
+        float: left!important
+        a
+          border: none
+          background: none
+          +set-border-radius(0)
+          font-size: 20px
+          font-weight: bolder
+          text-align: center
+          color: $asfalt_dark
+          margin: 0
+          cursor: pointer   
+      .active
+        a
+          background-color: #FFF
+          cursor: default
+    .tab-content
+      background-color: #FFF
+      +set-border-radius(0)
+      border: none
+      margin-bottom: 0
+      padding-bottom: 20px
+      form
+        //padding-top: 35px
+      label
+        display: none
+      .checkbox
+        display: block
+        margin: 20px 9%
+        font-size: 17px
+        line-height: 20px
+      input
+        display: block
+        width: 80%
+        margin: 20px auto
+        +inputsFont
+        border: none
+        background-color: rgba($grey-light, 0.4)
+        color: rgba($asfalt-dark, 0.8)
+        padding-left: 2.5em
+        line-height: 26px
+        &:focus, &.focus, &:active, &.active
+          border: 1px solid $asfalt_dark
+          color: $asfalt_dark
+      .form-control-feedback
+        right: auto
+        left: 3em
+        top: 0.7em
+        opacity: 0.8
+        &.icon-mail
+          font-size: 0.9em
+          margin-top: 0.6em 
+          margin-left: 1em 
+      .form-group
+        &.success
+          .form-control
+            border: 2px solid $turquoise_dark
+            color: $turquoise_dark
+          .form-control-feedback
+            color: $turquoise_dark
+        &.error
+          .form-control
+            border: 2px solid $red_dark
+            color: $red_dark
+          .form-control-feedback
+            top: 2em
+            color: $red_dark
+            &.icon-mail
+              margin-top: 1em 
+          label
+            display: block
+            color: $red_dark
+            width: 80%
+            margin: 0 auto -1.2em
+      .btn-submit
+        +buttonText
+        width: 80%
+        margin: 20px auto 0
+        background-color: $turquoise_dark
+        letter-spacing: 0.06em  
+        &:hover, &:focus, &.focus, &:active, &.active
+          background-color: lighten($turquoise_dark, 2)
+      .forgot
+        display: none
+        +inputsFont
+        color: rgba($asfalt_dark, 0.6)
+        margin: 20px 10%
+        text-align: center
+        &:hover
+          color: $turquoise_light
+        &.show
+          display: block
+      .social-holder
+        display: block
+        width: 160px
+        margin: 20px auto
+        padding-top: 10px
+        [class^="social-"]
+          +size(30px)
+          background:
+            position: center center
+            size: cover
+            color: transparent
+          +hide-shadow
+          +transition(opacity 0.3s ease-in)
+          border: none
+          &:hover
+            opacity: 0.9
+          margin-right: 30px
+          &:last-child
+            margin-right: 0 
+        .social-facebook
+          background-image: url("../assets/images/Social/Facebook-squared.png")
+        .social-twitter
+          background-image: url("../assets/images/Social/Twitter-squared.png")
+        .social-instagram
+          background-image: url("../assets/images/Social/Instagram-squared.png")
+        h2
+          margin: 10px 0 30px -40px
+          width: 240px
+          font-size: 24px
+          text-align: center
+    .sign-up
+      input
+        margin-bottom: 0
+#sign-modal .modal-body .tab-content #sign-up-form
+  .social-holder
+    margin-top: 10px
+    h2
+      font-size: 18px
+      font-weight: 700
+      opacity: 0.8  
+      margin-bottom: 15px

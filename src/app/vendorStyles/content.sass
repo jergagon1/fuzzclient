@@ -1,0 +1,532 @@
+// ------------------
+// ------------------
+// Main Page Content
+// ------------------
+// ------------------
+.description-block
+  display: flex
+  .background-image
+    background:
+      image: url('../assets/images/main-page/img1.png')
+      position: center right
+      repeat: no-repeat
+      size: cover
+  .content
+    background-color: $grey_light 
+    padding: 50px 70px
+    .wrapper-content
+      max-width: 685px
+      margin: auto
+    .logo
+      display: block
+      height: 105px
+      background:
+        image: url('../assets/images/logo-105.png')
+        position: center center
+        repeat: no-repeat
+    .title
+      +headingFont
+      margin: 45px auto 30px
+    .promo ul
+      list-style-image: url('../assets/images/main-page/list-dot.png')
+      padding-left: 20px
+      li
+        +paragraphFont
+        padding-bottom: 20px
+        padding-left: 5px
+.content-3.v-center
+  width: 780px
+  margin: auto
+  h3
+    +headingAccentFont
+  p
+    +paragraphFont
+  display: table
+  align-content: center
+  padding: 120px 0 0 5px
+  .image-block
+    height: 210px
+    background-repeat: no-repeat
+  .rabbit
+    background-image: url("../assets/images/main-page/rabbit.png")
+    background-position: 70% center 
+  .cat
+    background-image: url("../assets/images/main-page/cat.png")
+    background-position: center center 
+  .dog
+    background-image: url("../assets/images/main-page/dog.png")
+    background-position: 70% center
+.call-to-action
+  margin-top: 115px
+  background-color: $turquoise_dark 
+  .row
+    height: 105px
+    h2
+      +headingInvertedFont
+    max-width: 1170px
+    margin: auto
+    .sign-block
+      display: flex
+      +justify-content(space-around)
+      +align-items(center)
+      height: 100%
+      a
+        width: 165px
+        height: 45px
+        border: 2px solid white
+        text-align: center
+        +set-border-radius(5px)
+        +paragraphFont
+        color: white 
+        line-height: 40px 
+        &:hover
+          background-color: rgba(255, 255, 255, 0.3)
+
+@media screen and (max-width: 767px)
+  .description-block .background-image
+    display: none
+
+
+
+// ------------------
+// ------------------
+// Find Us Page Content
+// ------------------
+// ------------------
+.contacts-1
+  padding: 0
+  background-color: $grey_light
+  h3
+    +headingAccentFont
+    margin-bottom: 20px
+  h4
+    +headingFont
+    font-size: 20px
+    opacity: 0.8
+    margin-bottom: 0
+  .row
+    min-height: calc(100% - 160px)
+    .form-col
+      padding: 0
+      form
+        margin: 30px auto 0
+        label
+          margin-bottom: 10px
+        input, textarea
+          height: 50px
+          border: 1px solid $asfalt-dark 
+          +inputsFont
+          padding: 0 15px
+          line-height: 48px
+        textarea
+          height: 122px
+          padding: 13px 20px
+          line-height: 25px
+        button
+          margin-top: 7+9px 
+          width: 100%
+          height: 50px
+          background-color: $turquoise_dark 
+          +buttonText
+          letter-spacing: 0.06em 
+          .icon
+            padding-right: 20px
+          &:hover, &:focus, &.focus, &:active, &.active
+            background-color: lighten($turquoise_dark, 2) 
+    .additional
+      padding-top: 20px
+      h6, p
+        +paragraphFont
+      h6, a
+        font-weight: bolder
+      p
+        margin-bottom: 0
+        &:last-child
+          font-weight: bold
+          margin-bottom: 30px
+      h6
+        font-size: 20px
+      
+@media screen and (max-width: 990px)
+  .contacts-1
+    .row
+      max-width: 100%
+      .additional
+        padding: 70px 0 0
+        margin: 0
+  .row
+    .col-md-6.additional.form-col.text-center
+      width: 100%
+      min-height: calc(100% - 160px)
+      +display(table)
+      padding: 20px
+      .context-wrapper
+        +display(table-cell)
+        vertical-align: middle
+        padding-bottom: 0
+
+@media screen and (max-width: 480px)
+  .contacts-1
+    .row
+      padding: 0
+      .additional
+        padding: 0
+
+.city-pin  
+  .row 
+    display: flex
+    margin: 0
+    h3
+      margin-top: 30px
+    .form-col form
+      input, textarea
+        border: none
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.20)
+    form
+      display: block
+      width: 62%
+    .additional
+      padding-top: 30px
+      h3
+        display: block
+        @extend .fuzzHeadingFont
+        color: $asfalt-light
+        font-weight: 400
+        text-align: center
+      p
+        display: block
+        max-width: 540px
+        margin: 0 auto
+        &:last-child
+          font-weight: inherit
+          margin-bottom: 27px  
+      .logo-wrapper
+        display: block
+        +set-size(92px, 105px)
+        margin: 0 auto 27px
+        background: 
+          image: url("../assets/images/logo-105.png")
+          size: 100% 100%
+  .image-wrapper-1
+    display: block
+    opacity: 0.8
+    padding: 90px 0
+    -webkit-box-sizing: content-box 
+    -moz-box-sizing: content-box 
+    box-sizing: content-box 
+    background:
+      image: url("../assets/images/contacts-pin.png")
+      size: cover
+      repeat: no-repeat
+      position: center right
+
+@media screen and (max-width: 990px)
+  .city-pin
+    .row
+      +display(block)
+    .image-wrapper-1
+      display: none
+    
+@media screen and (max-width: 480px)
+  .city-pin
+    .image-wrapper-1
+      background: none
+      box-shadow: none
+      width: 0
+      height: 0
+    .row
+      margin: 0
+      padding: 25px
+      form
+        width: 100%
+        padding-bottom: 50px
+        
+// ------------------
+// ------------------
+// FuzzFacts Page Content
+// ------------------
+// ------------------
+
+.blog-3
+  padding: 70px 0 0
+  background:
+    image: url('../assets/images/team/background-team.png')
+    size: cover
+  .container
+    .row
+      padding-bottom: 50px
+  .cats
+    height: 35vh
+    background:
+      size: contain
+      image: url('../assets/images/team/cats-bottom.png')
+      position: bottom center
+      repeat: no-repeat
+  .title
+    margin-bottom: 20px
+    h3
+      +headingFont
+      color: $asfalt-light
+      padding-top: 40px 
+    &:before
+      content: ' '
+      display: block
+      margin: auto
+      +set-size(95px, 105px)
+      background:
+        image: url('../assets/images/logo-105.png')
+        repeat: no-repeat, no-repeat
+  p
+    +paragraphFont
+
+@media screen and (max-width: 990px)
+  .blog-3
+    padding-bottom: 0
+  
+@media screen and (max-width: 766px)
+  .blog-3
+    .container
+      .row
+        padding: 0 30px 50px
+@media screen and (max-width: 686px)
+  .blog-3 .cats
+    margin-top: -8%
+  .blog-3
+    padding: 70px 70px 0
+@media screen and (max-width: 540px)
+  .blog-3
+    padding: 70px 15px 0
+    .container
+      .row
+        padding: 0 30px 50px
+@media screen and (max-width: 375px)
+  .blog-3
+    font-size: 14px
+    .cats
+      margin-top: -8%
+
+@media screen and (max-width: 470px)
+  .blog-3
+    .container
+      .row
+        padding-bottom: 20px
+        
+@media screen and (max-width: 430px)
+  .blog-3
+    .cats
+      margin-top: -8%
+    .container
+      .row
+        padding-bottom: 0
+    .title
+      &:before
+        transform: scale(0.8)
+
+.crew-4
+  padding: 70px 10%
+  h3
+    +headingFont
+    margin-bottom: 60px
+  .members
+    .name
+      +headingFont
+      font-size: 24px
+      font-weight: bold 
+      color: #1E9F84
+    b, p, a
+      +paragraphFont
+      opacity: .8   
+    b, a
+      font-weight: bold
+    a
+      &:hover, &:focus, &.focus, &:active, &.active
+        color: $turquoise_dark  
+    
+// Crew for 2 members
+.two-members
+  h3
+    color: #506A86
+  p
+    +paragraphFont
+  .row
+    background-color: #FCFCFC
+    max-width: 1140px
+    margin: 0 auto 60px
+    display: flex
+    .col-md-4
+      padding: 35px 70px
+      background-color: #ECF0F1 
+      .name, .status, a
+        color: #2C3E51
+        font-weight: 500
+        letter-spacing: 0.05em
+      .photo
+        +set-border-radius(5px)
+        display: block
+        +set-size(100%, 30vh)
+        min-height: 300px
+        margin: 0 auto 25px
+        background:
+          size: cover
+          position: left center
+          repeat: no-repeat 
+      .name
+        font-size: 24px
+        line-height: 29px
+        margin-bottom: 0
+        color: #1E9F84
+        text-align: left
+      .status
+        font-size: 18px
+        line-height: 24px
+        margin: 10px auto 5px
+      a
+        display: block
+        font-size: 18px
+        line-height: 24px
+        opacity: .6 
+        +transition(opacity .2s ease-in)
+        &:hover, &:focus, &.focus, &:active, &.active
+          opacity: .9
+    .col-md-8
+      padding: 40px 30px 30px
+      p
+        +paragraphFont
+        color: #212F40  
+      
+  .member-one
+    .col-md-4
+      .photo
+        background-image: url('../assets/images/team/tiffany.png')
+    .col-md-8
+      p
+        +paragraphFont
+  .member-two
+    +flex-direction(row-reverse)
+    margin-bottom: 0
+    .col-md-4
+      .photo
+        background-image: url('../assets/images/team/jeremy.png')
+  
+@media screen and (max-width: 1200px)
+  .two-members
+    .row
+      +display(block)
+      .col-md-4, .col-md-8
+        width: 100%
+      .col-md-4
+        padding: 35px 25%
+  .crew-4
+    padding: 70px 10%
+
+@media screen and (max-width: 680px)
+  .two-members
+    .row
+      +display(block)
+      .col-md-4, .col-md-8
+        width: 100%
+      .col-md-4
+        padding: 35px 15%
+        .photo
+          height: 45vh
+          min-height: 250px
+  .crew-4
+    padding: 70px 10% 
+
+@media screen and (max-width: 375px)
+  .two-members .row .col-md-4 a
+    font-size: 14px
+
+// ------------------
+// ------------------
+// FuzzFund Page Content
+// ------------------
+// ------------------
+.fund
+  min-height: calc(100% - 160px)
+  .row
+    display: flex
+    margin: 0
+    width: 100%
+    .col-sm-7.content-fund
+      +display(table)
+      padding: 20px
+      height: 100%
+      .wrapper-content
+        +display(table-cell)
+        vertical-align: middle
+        padding-bottom: 0
+    .background-image-fund
+      background:
+        image: url('../assets/images/fund1.png')
+        position: center center
+        repeat: no-repeat
+    .content-fund
+      background-color: $grey_light 
+      padding: 50px 70px
+      .wrapper-content
+        max-width: 720px
+        margin: auto
+      .logo
+        display: block
+        height: 105px
+        background:
+          image: url('../assets/images/logo-105.png')
+          position: center center
+          repeat: no-repeat
+      .promo
+        max-width: 480px
+        margin: auto
+      .title
+        +headingFont
+        text-align: center
+        margin-top: 30px !important
+      p
+        +paragraphFont
+      a
+        font-weight: bold
+
+.fund-donate
+  margin-top: 40px
+  text-align: center
+  .btn
+    font-weight: 500
+    margin-bottom: 30px
+    font-size: 17px
+    line-height: 17px
+    width: 165px
+    height: 43px
+    letter-spacing: 1px
+    text-transform: uppercase
+  &:after
+    content: ' '
+    display: block
+    height: 90px
+    background:
+      image: url('../assets/images/fund2.png')
+      repeat: no-repeat, no-repeat
+      position: center center
+
+@media screen and (max-width: 990px)
+  .fund
+    .row
+      height: 100%
+
+@media screen and (max-width: 960px)
+  .description-block
+    +display(block)
+    width: 100%
+    .row 
+      .background-image-fund
+        display: none
+    .row
+      +display(block)
+      .col-sm-7.content-fund
+        +display(table)
+        width: 100%
+        height: 100%
+        padding: 20px
+        .wrapper-content
+          +display(table-cell)
+          vertical-align: middle
+          padding-bottom: 0

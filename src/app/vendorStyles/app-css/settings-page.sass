@@ -1,0 +1,268 @@
+.fuzzfinders-app
+	.file-view-wrapper
+		background-color: $grey_light 
+		+set-size(100vw, 100vh)
+		display: block
+		position: relative
+
+
+		.menu-navigation .nav-trigger
+			position: absolute
+			top: 15px
+			right: 4px
+			margin: 0
+		.table
+			td
+				padding: 0 0 0 32px
+				font-weight: 500 
+				&:first-child
+					font-size: 16px
+					line-height: 40px
+				
+				&:last-child
+					font-size: 18px
+					line-height: 40px
+		.top-profile-wrapper
+			+set-size(100%, 150px)
+			margin-bottom: 90px
+			position: relative
+			z-index: 1
+			.locker
+				+size(100%)
+				overflow: hidden
+				position: relative
+				background-color: rgba($blue-dark, .3)
+
+				.blured-profile
+					position: absolute
+					top: -10px
+					right: -10px
+					bottom: -10px
+					left: -10px
+					+filter(blur(5px))
+					-webkit-background-size: cover 
+					-o-background-size: cover 
+					background-size: cover 
+					
+					background-position: center center
+					
+					z-index: -1
+			.photo-profile
+				+size(120px)
+				+set-border-radius(50%)
+				background:
+					position: center center
+					size: cover
+				margin: 0 -60px
+				z-index: 1
+				position: absolute
+				bottom: -60px
+				left: 50%
+		.btn-big.btn-blue
+			display: block
+			width: 75%
+			margin: 50px auto 20px
+		
+
+
+
+		.file-edit-wrapper
+			position: absolute
+			top: 100%
+			width: 100%
+			background: $grey_light
+			height: 0
+			
+			display: block
+			
+			z-index: 100
+			
+			overflow-x: hidden
+			overflow-y: scroll
+			
+			
+			
+			+transition(all .6s ease-in-out)
+
+			&.show
+				top: 0
+				height: 100%
+
+
+			.settings-title
+				margin: 30px auto
+				text-align: center
+			
+			#photo-holder
+				display: block
+				margin: auto
+				+size(100%)
+				max-width: 168px
+				max-height: 168px
+				+set-border-radius(5px) 
+				background:
+					size: contain
+					position: center center
+			#upload-profile-image
+				margin: 30px auto
+				width: 100%
+			
+			.profile-edit-wrapper
+				margin: 0 42px 50px
+				.form-group
+					margin-bottom: 30px
+				.input
+					width: 100%
+			
+				.dropdown
+					width: 100%
+					
+			
+
+
+			
+
+
+
+
+
+
+
+
+//iPhone 5 adaptive
+@media screen and (max-height: 568px)
+	.fuzzfinders-app
+		.file-view-wrapper
+			.top-profile-wrapper
+				height: 100px
+				margin-bottom: 50px 
+				.photo-profile
+					+size(90px)
+					margin: 0 -45px
+					bottom: -45px
+
+
+//iPhone 4 adaptive
+@media screen and (max-height: 480px)
+	.fuzzfinders-app
+		.file-view-wrapper
+			.btn-big.btn-blue
+				margin: -10px auto 20px
+
+
+
+
+
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//				TABLET LAYOUT
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+
+
+@media screen and (min-width: 640px) and (min-height: 640px)
+	.fuzzfinders-app
+		.file-view-wrapper
+			.top-profile-wrapper
+				height: 250px
+				.photo-profile
+					+size(200px)
+					margin-left: -100px
+			.table
+				width: 70%
+				margin: 190px auto 140px
+				position: relative
+				padding: 30px
+				z-index: 1
+				&:before
+					content: ' '
+					position: absolute
+					top: -30px
+					bottom: -30px
+					left: -30px
+					right: -30px
+					display: block
+					+set-border-radius(5px)
+					background-color: white
+					z-index: -1
+				
+
+				td
+					padding: 0 0 0 80px
+					&:first-child
+						font-size: 18px
+						line-height: 45px
+					
+					&:last-child
+						font-size: 20px
+						line-height: 45px
+			.btn-big.btn-blue
+				width: 50%
+			
+
+			.file-edit-wrapper.show
+				.settings-title
+					margin-bottom: 40px
+				#photo-holder
+					+size(250px)
+				#upload-profile-image
+					margin: 30px auto 40px
+					width: 50%
+				
+				#general-settings, #password-settings, #notification-settings
+					width: 70%
+					margin: 0 auto 50px
+				
+				#notification-settings
+					margin-bottom: 80px
+
+
+
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//				DESKTOP LAYOUT
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+
+@media screen and (min-width: 1025px) and (min-height: 600px)
+	.fuzzfinders-app.navigation-blue
+		&:before
+			content: ''
+			display: block
+			position: fixed
+			top: 0
+			left: 0
+			z-index: -1
+			+set-size(100vw, 100vh)
+			background:
+				image: url('../assets/images/app/background.png')
+				position: 70% center
+				size: cover
+		
+		-ms-overflow-y: scroll 
+		overflow-y: scroll 
+		
+		.background-for-navigation
+			z-index: 0
+		.file-view-wrapper
+			position: absolute
+			top: 120px
+			+set-size(905px, auto)
+			padding-bottom: 30px
+			margin-bottom: 50px
+			left: calc( 50% - 403px )
+			
+			.nav-block
+				.brand-logo, .nav-trigger
+					display: none
+				.section-title
+					line-height: 70px
+			.table
+				margin: 140px auto 90px
+		
+
+			.file-edit-wrapper.show
+				height: auto
+				-ms-overflow-y: auto 
+				overflow-y: auto 
+

@@ -1,0 +1,78 @@
+.section-wrapper
+    //mapMultiple
+    //form.search-area
+    //    input.input.form-control(placeholder="Search Keywords")
+    //    .row
+    //        .col-xs-6
+    //            .dropdown.dropdown-small
+    //                button#sightings-lost-or-found.btn.btn-dropdown.dropdown-toggle(type="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true")
+    //                    | Lost or Found
+    //                    span.caret
+    //                ul.dropdown-menu(aria-labelledby="sightings-lost-or-found")
+    //                    // reportType = ['Lost', 'Found']
+    //                    li(ng-repeat='item in petTypeList')
+    //                        a(href='#') item
+    //        .col-xs-6
+    //            .dropdown
+    //                button#sightings-pet-type-btn.btn.btn-dropdown.dropdown-toggle(type="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true")
+    //                    | Pet type
+    //                    span.caret
+    //                ul.dropdown-menu(aria-labelledby="sightings-pet-type-btn")
+    //                    // petTypeList = ['Dog', 'Cat', 'Bird', 'Other']
+    //                    li(ng-repeat='item in petTypeList')
+    //                        a(href='#') item
+    //    .row
+    //        .col-xs-6
+    //            input.input.input-small.form-control(placeholder="Pet color")
+    //        .col-xs-6
+    //            input.input.input-small.form-control(placeholder="Pet Breed")
+    //    .row
+    //        .col-xs-6
+    //            .dropdown.dropdown-small
+    //                button#sightings-gender-btn.btn.btn-dropdown.dropdown-toggle(type="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true")
+    //                    | Gender
+    //                    span.caret
+    //                ul.dropdown-menu(aria-labelledby="sightings-gender-btn")
+    //                    // petSexList = ['Male', 'Female']
+    //                    li(ng-repeat='item in petSexList')
+    //                        a(href='#') item
+    //        .col-xs-6
+    //            .dropdown.dropdown-small
+    //                button#sightings-size-btn.btn.btn-dropdown.dropdown-toggle(type="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true")
+    //                    | Size
+    //                    span.caret
+    //                ul.dropdown-menu(aria-labelledby="sightings-size-btn")
+    //                    // petSizeList = ['Small', 'Medium', 'Large']
+    //                    li(ng-repeat='item in petSizeList')
+    //                        a(href='#') item
+    //    .row
+    //        .col-xs-6
+    //            .dropdown.dropdown-small
+    //                button#sightings-age-btn.btn.btn-dropdown.dropdown-toggle(type="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true")
+    //                    | Age
+    //                    span.caret
+    //                ul.dropdown-menu(aria-labelledby="sightings-age-btn")
+    //                    // petAgeList = ['Baby', 'Young', 'Adult', 'Senior']
+    //                    li(ng-repeat='item in petSizeList')
+    //                        a(href='#') item
+    //        .col-xs-6
+    //            button.btn.btn-small.btn-blue(type="reset") Reset Filters
+    ////On click add to .section-wrapper class .extra-open
+    //button.btn.btn-search.btn-blue
+    //    span.icon.icon-search
+    //    | Search FuzzAlerts
+
+    .posts
+        .post.lost-post.btn-toggler.placeholder-dog(ng-repeat='post in $ctrl.alertsIndex')
+            h3.title {{ $ctrl.title }}
+            .photo-holder
+            .content-holder
+            table
+                tbody
+                    tr
+                        td Last Seen
+                        td {{ ::post.lastSeen | date : 'MM/dd/yy h:mm' }}
+                    tr
+                        td Posted by
+                        td {{ ::post.author}}
+            a.read-more Read more

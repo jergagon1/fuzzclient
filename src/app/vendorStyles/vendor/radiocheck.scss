@@ -1,0 +1,100 @@
+.checkbox input[type="checkbox"].custom-checkbox, .radio input[type="checkbox"].custom-checkbox, .checkbox input[type="radio"].custom-radio, .radio input[type="radio"].custom-radio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    outline: none !important;
+    opacity: 0;
+}
+
+.radio input[type=radio], .radio-inline input[type=radio], .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox] {
+    position: absolute;
+    margin-top: 4px \9;
+    margin-left: -20px;
+}
+
+input[type=radio], input[type=checkbox] {
+    margin: 4px 0 0;
+    margin-top: 1px \9;
+    line-height: normal;
+}
+
+.radio + .radio, .checkbox + .checkbox {
+    margin-top: 10px;
+}
+
+.checkbox, .radio {
+    position: relative;
+    min-height: 20px;
+    padding-left: 32px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-transition: color .25s linear;
+    transition: color .25s linear;
+}
+
+.checkbox .icons, .radio .icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    line-height: 20px;
+    color: #bdc3c7;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: color .25s linear;
+    transition: color .25s linear;
+}
+
+.checkbox input[type="checkbox"].custom-checkbox:checked + .icons, .radio input[type="checkbox"].custom-checkbox:checked + .icons, .checkbox input[type="radio"].custom-radio:checked + .icons, .radio input[type="radio"].custom-radio:checked + .icons {
+    color: #1abc9c;
+}
+
+.checkbox .icon-checked, .radio .icon-checked, .checkbox .icon-unchecked, .radio .icon-unchecked {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-table;
+    margin: 0;
+    background-color: transparent;
+    filter: none;
+    opacity: 1;
+    -webkit-filter: none;
+}
+
+.checkbox input[type="checkbox"].custom-checkbox:checked + .icons .icon-checked, .radio input[type="checkbox"].custom-checkbox:checked + .icons .icon-checked, .checkbox input[type="radio"].custom-radio:checked + .icons .icon-checked, .radio input[type="radio"].custom-radio:checked + .icons .icon-checked {
+    color: #1abc9c;
+    filter: none;
+    opacity: 1;
+    -webkit-transition: color .25s linear;
+    transition: color .25s linear;
+    -webkit-filter: none;
+}
+
+.checkbox input[type="checkbox"].custom-checkbox:checked + .icons, .radio input[type="checkbox"].custom-checkbox:checked + .icons, .checkbox input[type="radio"].custom-radio:checked + .icons, .radio input[type="radio"].custom-radio:checked + .icons {
+    color: #1abc9c;
+}
+
+.checkbox .icons, .radio .icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    line-height: 20px;
+    color: #bdc3c7;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: color .25s linear;
+    transition: color .25s linear;
+}
+

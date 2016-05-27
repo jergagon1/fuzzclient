@@ -1,0 +1,50 @@
+chat
+  +transition(left .5s ease-in-out)
+  +transform(translateZ(0))
+  +transform(translate3d(0,0,0))
+  -webkit-backface-visibility: hidden
+  -moz-backface-visibility: hidden
+  -ms-backface-visibility: hidden
+  backface-visibility: hidden
+  position: absolute
+  top: 100%
+  left: 0
+  +size(100%)
+  overflow: hidden
+  background: $grey_light
+  +transition(top .6s ease-in) 
+  z-index: 400
+  &.show
+    top: 0
+  .chat-wrapper
+    height: calc(100% - 130px)
+    overflow-y: scroll
+    padding: 30px 30px 30px 20px    
+  .message-input
+    position: absolute
+    bottom: -11px
+    
+    .btn-message
+      margin: 0
+      padding: 4px 0 
+      display: inline-block
+
+@media screen and (min-width: 640px) and (min-height: 640px)
+  chat
+    .chat-wrapper
+      height: calc( 100% - 140px)
+      padding: 50px 100px
+    .message-input
+      input
+        height: 60px
+
+@media screen and (min-width: 1025px) and (min-height: 600px)
+  chat
+    +set-size(905px, 800px)
+    left: calc( 50% - 453px )
+    &.show
+      top: 120px
+      +set-size(905px, calc(100% - 120px))
+      min-height: auto
+      overflow-y: hidden
+      box-shadow: 0px 5px 20px 0px rgba(0,0,0, .2)

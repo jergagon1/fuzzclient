@@ -1,0 +1,250 @@
+.pet-sightings-page-wrapper
+  .section-wrapper
+    display: block
+    width: 100%
+    height: calc(100% - 80px)
+    overflow-x: hidden
+    overflow-y: scroll
+
+    .map
+      display: block
+      +set-size(100%, 300px)
+
+    .search-area
+      display: block
+      height: 0
+      padding: 0
+      margin: 0
+      overflow: hidden
+      background-color: rgba(#3498DB, .05)
+      +transition(height .9s ease-in-out)
+
+      .input
+        color: $asfalt_dark
+        margin-bottom: 25px
+        +placeholder
+          color: $asfalt_dark
+          opacity: 1
+      .row
+        margin: 0
+        padding: 0
+        .col-xs-6
+          padding: 0
+          &:first-child
+            padding-right: 12px
+          &:last-child
+            padding-left: 12px
+
+          .dropdown
+            width: 100%
+            margin: 0 0 25px
+            .btn-dropdown
+              margin: 0
+
+          .btn-small
+            margin: 0
+            width: 100%
+            font-weight: 500
+            letter-spacing: .03em
+
+    &.extra-open
+      .search-area
+        padding: 25px 5% 20px
+        height: auto
+
+
+
+    .btn-search
+      margin: 0
+      width: 100%
+      box-shadow: 0px -2px 10px 0px rgba($agrey_dark, .5)
+
+
+    .posts
+      padding: 50px 5% 10px
+
+      .post
+        +set-size(100%, 165px)
+        +set-border-radius(5px)
+        overflow: hidden
+        margin-bottom: 30px
+        background-color: white
+        cursor: pointer
+        .title
+          display: block
+          margin: 0
+          width: 100%
+          background-color: pink
+          font-size: 18px
+          font-weight: 500
+          letter-spacing: .05em
+          line-height: 40px
+          color: white
+
+        .photo-holder
+          display: inline-block
+          width: 30%
+          height: 140px
+
+          vertical-align: top
+          background:
+            position: center center
+            size: cover
+
+        .content-holder
+          display: inline-block
+          width: 68%
+          padding: 20px 0 0 15px
+          vertical-align: top
+          table
+            td
+              display: inline-block
+              font-size: 14px
+              font-weight: 300
+              line-height: 20px
+              color: $asfalt_dark
+              padding-bottom: 15px
+              &:last-child
+                padding-left: 5px
+                font-weight: 500
+          .read-more
+            display: block
+            text-align: center
+
+        &.lost-post
+          .title
+            background-color: $maroon_light
+          .content-holder .read-more
+            color: $maroon_light
+
+        &.found-post
+          .title
+            background-color: $turquoise_dark
+          .content-holder .read-more
+            color: $turquoise_dark
+      $placeholder-options: ( dog: dog, cat: cat, bird: bird)
+      .placeholder
+        @each $name, $link in $placeholder-options
+          &-#{$name}
+            .photo-holder
+              border-right: 2px solid rgba($grey_light, 0.4)
+              background:
+                image: url('../assets/images/main-page/#{$link}.png')
+                size: 80% auto
+                position: 50% 40%
+                repeat: no-repeat
+                color: rgba($grey_light, 0.2)
+@media screen and (max-height: 567px)
+  .pet-sightings-page-wrapper .section-wrapper
+    height: calc(100% - 60px)
+
+
+@media screen and (max-width: 350px)
+  .pet-sightings-page-wrapper .section-wrapper
+    .posts .post .content-holder table td
+      font-size: 12px
+      line-height: 18px
+@media screen and (max-width: 350px)
+  .nav-block
+    h2
+      font-size: 18px
+
+
+@media screen and (max-width: 320px)
+
+  .pet-sightings-page-wrapper .section-wrapper
+    .search-area
+      .row
+        .col-xs-6
+          &:first-child
+            padding-right: 5px
+          &:last-child
+            padding-left: 5px
+          .dropdown
+            margin-bottom: 16px
+            .btn-dropdown
+              padding-left: 8px
+              .caret
+                right: 8px
+      .input
+        padding-left: 8px
+        margin-bottom: 16px
+
+@media screen and (max-width: 350px)
+  .pet-sightings-page-wrapper.post
+    .content-holder table td
+      font-size: 12px
+      line-height: 18px
+
+@media screen and (min-width: 640px) and (min-height: 640px)
+  .pet-sightings-page-wrapper.post
+    display: inline-block
+    width: 44%
+    margin: 25px 2.6%
+    .read-more
+      font-size: 14px
+      line-height: 20px
+
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//				TABLET LAYOUT
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+
+
+@media screen and (min-width: 640px) and (min-height: 640px)
+  .pet-sightings-page-wrapper
+    .section-wrapper
+      .map
+        height: 450px
+
+      &.extra-open
+        .search-area
+          padding: 40px 15% 10px
+        .input, .row .col-xs-6 .dropdown, .row .col-xs-6 .btn-small
+          margin-bottom: 40px
+
+
+      .posts
+        padding: 25px 0 25px
+        width: calc(95%)
+        margin: auto
+        .post
+          display: inline-block
+          width: 44%
+          margin: 25px 2.6%
+          .read-more
+            font-size: 14px
+            line-height: 20px
+
+
+@media screen and (min-width: 640px) and (min-height: 640px) and (orientation: landscape)
+  .pet-sightings-page-wrapper
+    .section-wrapper
+      .map
+        height: 350px
+
+
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//				DESKTOP LAYOUT
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+@media screen and (min-width: 1025px) and (min-height: 600px)
+  .pet-sightings-page-wrapper
+    top: 120px
+    left: 110%
+    +set-size(905px, 800px)
+
+    &.show
+      top: 120px
+      +set-size(905px, auto)
+      min-height: 800px
+      left: calc( 50% - 403px )
+      margin-bottom: 100px
+      overflow-y: auto
+      box-shadow: 0px 5px 20px 0px rgba(0,0,0, .2)
+      .section-wrapper
+        overflow-y: auto
+    &.post-shown
+      height: 800px

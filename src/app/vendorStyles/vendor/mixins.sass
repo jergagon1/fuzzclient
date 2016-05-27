@@ -1,0 +1,35 @@
+@mixin set-size($width, $heigth)
+	width: $width
+	height: $heigth
+
+
+@mixin hide-shadow
+	outline: none !important
+	box-shadow: none !important
+	-webkit-box-shadow: none !important
+	-moz-box-shadow: none !important
+
+@mixin set-inset-shadow($x, $y, $radius1, $radius2, $color)
+	box-shadow: inset $x $y $radius1 $radius2 $color
+	-webkit-box-shadow: inset $x $y $radius1 $radius2 $color
+	-moz-box-shadow: inset $x $y $radius1 $radius2 $color
+
+@mixin set-border-radius($param)
+	border-radius: $param
+	-webkit-border-radius: $param
+	-moz-border-radius: $param
+	-khtml-border-radius: $param
+	-o-border-radius: $param
+	-ms-border-radius: $param
+	-icab-border-radius: $param
+
+
+=placeholder
+	\&::-webkit-input-placeholder
+		@content
+	\&:-moz-placeholder
+		@content
+	\&::-moz-placeholder
+		@content
+	\&:-ms-input-placeholder
+		@content

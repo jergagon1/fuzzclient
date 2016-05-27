@@ -1,0 +1,19 @@
+.background-for-navigation(ng-class='$ctrl.navColor')
+.menu-navigation(ng-class='$ctrl.navColor')
+  a.brand(href='main.html')
+    .logo
+    h3.brand-title
+      | Fuzz
+      span.alt Finders
+      span.trademark TM
+  .profile-wrapper
+    .user-photo(ng-style='$ctrl.getUserPhoto()')
+    p.user-name {{ $ctrl.user.name }}
+  ul
+    li(ng-repeat='item in $ctrl.menuItems', ng-class='$ctrl.getItemClass(item)')
+      a(href='{{item.link}}', ng-class='$ctrl.getStatusClass(item)') {{item.title}}
+  .extra-area
+  .nav-trigger.nav-trigger-white.open
+    span
+    span
+    span

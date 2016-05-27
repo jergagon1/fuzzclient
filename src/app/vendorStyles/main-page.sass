@@ -1,0 +1,404 @@
+@import 'vendor/nav-icon'
+
+// HEADER
+.header-11
+  .btn-sign
+    +buttonText
+    background-color: $turquoise_dark
+    letter-spacing: 0.06em  
+    &:hover, &:focus, &.focus, &:active, &.active
+      background-color: lighten($turquoise_dark, 2) 
+    float: right
+    margin: 25px 0 0 50px
+  .brand
+    display: block
+    width: 280px
+    height: 66px
+    margin: 11px 0
+    background:
+      image: url('../assets/images/logo.png'), url('../assets/images/logo-title-1.png')
+      position: left center, right center
+      repeat: no-repeat, no-repeat
+  .nav-icon
+    display: none
+  .navigation
+    display: inline-block
+    padding: 32px 0 0
+    float: right
+    li
+      display: inline-block
+      a
+        +menuFont
+        padding: 35px 15px 35px
+    .action
+      display: none
+      cursor: pointer
+    .main-page-link
+      display: none
+      
+@media screen and (min-width: 850px)
+  .container
+    min-width: 840px
+
+@media screen and (max-width: 990px)
+  .header-11
+    .navigation li a
+      padding: 35px 7px 35px
+    .btn-sign
+      margin-left: 30px
+      
+@media screen and (max-width: 850px)
+  .header-11
+    position: relative
+    .nav-icon
+      display: block
+      margin-top: 25px
+      position: absolute
+      top: 7px
+      right: 20px
+      z-index: 1000
+      span
+        background-color: $asfalt_dark
+        height: 4px
+        +set-border-radius(0)
+      +transform(scale(0.66))
+    .nav-icon.open
+      position: fixed
+      span
+        background-color: $grey_light 
+    
+    .btn-sign
+      margin-right: 60px 
+    .navigation
+      position: fixed
+      top: 0
+      right: -250px
+      opacity: 0.3
+      width: 250px
+      height: 1000px
+      height: 100vh
+      background-color: $asfalt_dark
+      z-index: 999
+      padding-top: 100px
+      +transition(all 0.3s ease-in)
+      li
+        display: block
+        width: 80%
+        text-align: left
+        margin: 30px 0 30px
+        margin-left: 20%
+        a
+          color: $grey_light
+          font-weight: 400
+      .action
+        display: block
+        margin: 60px 50px -30px
+        a
+          color: $turquoise_dark
+          font-weight: 700
+      .main-page-link
+        display: block
+    .navigation.open
+      right: 0
+      opacity: 1
+
+@media screen and (max-width: 600px)
+  .header-11 .btn-sign
+    display: none
+    
+@media screen and (max-width: 360px)
+  .header-11 .brand
+    +transform(scale(0.8))
+    margin-left: -15px
+
+@media screen and (max-width: 340px)
+  .header-11 .brand
+    +transform(scale(0.75))
+    margin-left: -40px
+
+
+.header-11-sub
+  .background
+    background:
+      image: url("../assets/images/main-page/header_background-1.jpg")
+      position: cover
+  h3
+    +headerTitleFont
+    color: $grey_light
+    padding-bottom: 20px
+  p
+    +headerTextFont
+    color: $grey_light
+    padding-bottom: 20px
+  .signup-form form
+    margin: 0
+  .form-group
+    input
+      +inputsFont
+      line-height: inherit 
+      height: 50px
+      opacity: 0.95
+    button
+      background-color: $turquoise_dark
+      +buttonText
+      padding: 16px
+      &:hover, &:focus, &.focus, &:active, &.active
+        background-color: lighten($turquoise_dark, 2) 
+  .passwords
+    input
+      display: inline-block
+      width: 48%
+      margin: 0
+      &:last-child
+        float: right
+  #player
+    margin-top: 100px
+    .video-wrapper .video
+      background-size: cover !important
+
+
+@media screen and (max-width: 1200px)
+  .header-11-sub .player
+    margin-top: 150px
+
+@media screen and (max-width: 990px)
+  .header-11-sub .player
+    margin-top: 80px
+
+
+@media screen and (max-width: 769px)
+  .header-11-sub
+    .container
+      padding: 10px 65px
+    h3
+      padding-bottom: 0
+      margin-bottom: 10px
+    p
+      margin-bottom: 10px
+    .player
+      margin: 0 auto 40px
+    .form-group
+      margin-bottom: 25px
+
+@media screen and (max-width: 600px)
+  .header-11-sub
+    .container
+      padding: 10px 15px
+
+// 2 SIDE
+.description-block
+  display: flex
+  .background-image
+    background:
+      image: url('../assets/images/main-page/img1.png')
+      position: center right
+      repeat: no-repeat
+      size: cover
+    padding: 0
+    width: 45%
+  .content
+    width: 55%
+    background-color: #DFE4E4 
+    padding: 50px 70px
+    .wrapper-content
+      max-width: 685px
+      margin: auto
+    .logo
+      display: block
+      height: 105px
+      background:
+        image: url('../assets/images/logo-105.png')
+        position: center center
+        repeat: no-repeat
+    .title
+      +headingFont
+      color: #506A86
+      margin: 45px auto 30px
+    .promo ul
+      list-style-image: url('../assets/images/main-page/list-dot.png')
+      padding-left: 20px
+      li
+        +paragraphFont
+        padding-bottom: 20px
+        padding-left: 5px
+
+@media screen and (max-width: 980px)
+  .description-block
+    +display(block)
+    .background-image
+      width: 0px
+  .description-block .content
+    width: 100%
+    margin: auto
+
+@media screen and (max-width: 500px)
+  .description-block .content
+    padding: 50px 15px
+
+@media screen and (max-width: 400px)
+  .description-block .content .title
+    text-align: center
+
+
+// FEATURES
+.content-3.v-center
+  max-width: 780px
+  width: auto
+  margin: auto
+  h3
+    +headingAccentFont
+  p
+    +paragraphFont
+  display: table
+  align-content: center
+  padding: 120px 0 0 5px
+  .image-block
+    height: 210px
+    background-repeat: no-repeat
+  .rabbit
+    background-image: url("../assets/images/main-page/rabbit.png")
+    background-position: 70% center 
+  .cat
+    background-image: url("../assets/images/main-page/cat.png")
+    background-position: center center 
+  .dog
+    background-image: url("../assets/images/main-page/dog.png")
+    background-position: 70% center
+
+@media screen and (max-width: 769px)
+  .content-3.v-center
+    display: block
+    padding: 0 86px
+    .aligment
+      display: block
+      width: 100%
+      h3
+        margin-top: 70px
+    .image-block
+      display: block
+      margin: 15px auto
+      background-position: center center
+
+@media screen and (max-width: 480px)
+  .content-3.v-center
+    .image-block
+      width: 160px
+      height: 150px
+      margin: auto
+      background-size: 100% auto
+
+@media screen and (max-width: 515px)
+  .content-3.v-center
+    display: block
+    padding: 0 15px
+
+
+
+// CALL TO ACTION
+.call-to-action
+  margin-top: 115px
+  background-color: $turquoise_dark 
+  .row
+    height: 105px
+    h2
+      +headingInvertedFont
+      font-weight: 400 
+    max-width: 1170px
+    margin: auto
+    .sign-block
+      display: flex
+      +justify-content(space-around)
+      +align-items(center)
+      height: 100%
+      a
+        width: 165px
+        height: 45px
+        border: 2px solid white
+        text-align: center
+        +set-border-radius(5px)
+        +buttonText
+        color: white 
+        line-height: 40px 
+        text-transform: uppercase
+        &:hover
+          background-color: rgba(255, 255, 255, 0.3)
+
+@media screen and (max-width: 1050px)
+  .call-to-action
+    .row
+      height: auto
+      padding: 0px 15px 15px
+      .call
+        width: 100%
+        h2
+          width: 100%
+          text-align: center
+      .sign-block
+        height: 95px
+        width: 100%
+
+@media screen and (max-width: 450px)
+  .call-to-action .row
+    .sign-block
+      height: 160px
+      +flex-direction(column)
+      a
+        width: 80%
+        text-transform: uppercase
+
+// FOOTER
+.footer-2
+  nav
+    float: left
+    a
+      +menuFont
+      color: $grey-light
+      line-height: 30px
+  .social-btns
+    float: right
+    a
+      display: inline-block
+      +size(30px)
+      margin-left: 70px
+      &:hover, &:focus, &.focus, &:active, &.active
+        opacity: 0.7
+    .social-instagram
+      background-image: url("../assets/images/Social/Instagram.png")
+    .social-facebook
+      background-image: url("../assets/images/Social/Facebook.png")
+    .social-twitter
+      background-image: url("../assets/images/Social/Twitter.png")
+
+@media screen and (max-width: 769px)
+  .footer-2
+    width: 100%
+    nav
+      width: 60%
+      float: none 
+      margin: auto
+      display: block
+      ul
+        width: 100%
+        display: flex
+        +justify-content(space-between)
+    .social-btns
+      width: 50%
+      margin: auto
+      float: none
+      display: flex
+      +justify-content(space-around)
+      margin-top: 30px
+      a
+        margin: auto
+
+@media screen and (max-width: 515px)
+  .footer-2
+    nav
+      width: 100%
+      ul
+        display: block
+        li
+          display: block
+          width: 100%
+          padding-left: 20%
+          margin: 0 0 10px 0

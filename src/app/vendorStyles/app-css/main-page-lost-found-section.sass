@@ -1,0 +1,419 @@
+.lost-pet-page-wrapper, .found-pet-page-wrapper
+	position: absolute
+	top: 0
+	left: 100%
+	+transition(left .5s ease-in-out)
+	+transform(translateZ(0))
+	+transform(translate3d(0,0,0))
+	-webkit-backface-visibility: hidden
+	-moz-backface-visibility: hidden
+	-ms-backface-visibility: hidden
+	backface-visibility: hidden
+
+	+size(99%)
+	overflow-x: hidden
+	overflow-y: scroll
+
+	background-color: $grey_light
+
+	z-index: 200
+	&.show
+		left: 0
+		+size(100%)
+		.ancete-wrapper.step-1 .step-wrapper-1
+			height: auto
+	.section-wrapper
+		display: block
+		width: 100%
+		height: calc(100% - 80px)
+		overflow-x: hidden
+		overflow-y: scroll
+	.progress-step
+		margin: 25px auto 25px
+
+
+
+	//-------------------------------
+	// ANCETE WRAPPER
+	//-------------------------------
+
+	.ancete-wrapper
+
+		//Toggling ancete
+
+		position: relative
+		//overflow-x: hidden
+		width: 100%
+		min-height: calc( 100% - 91px)
+
+		overflow-x: hidden
+		overflow-y: hidden
+
+		[class^="step-wrapper-"]
+			display: block
+			position: absolute
+			top: 0
+			left: 100%
+			background-color: $grey_light
+			width: 100%
+			height: calc(100% - 32px)
+			overflow: hidden
+			padding: 0 40px
+			+transition(all .3s ease-in)
+			.btn
+				&:last-child
+					margin-bottom: 20px
+
+
+		&.step-1
+			.step-wrapper-1
+				left: 0
+				height: auto
+		&.step-2
+			.step-wrapper-2
+				left: 0
+				height: auto
+
+		&.step-3
+			.step-wrapper-3
+				left: 0
+				height: auto
+				+animation-delay(.5s)
+
+		// Toggling ancete buttons
+		.empty
+			.btn-new
+				display: block
+			.btn-done
+				display: none
+		.done
+			.btn-new
+				display: none
+			.btn-done
+				display: block
+
+
+
+		// Common ancete elements
+
+		.title
+			margin: 0 0 15px
+
+		.description
+			margin-bottom: 15px
+			padding: 0 10px
+
+
+
+
+
+		// STEP 1: Provide pet's photo
+		.step-wrapper-1
+			.btn-big
+				margin: 20px auto
+
+			.photo-wrapper
+				.preview-holder
+					display: block
+					+set-size(100%, 170px)
+					+set-border-radius(5px)
+					border: 2px solid $agrey_light
+					background:
+						color: white
+						position: 50% 50%
+						repeat: no-repeat no-repeat
+					position: relative
+
+					i
+						position: absolute
+						color: rgba(black, .6)
+						font-size: 30px
+
+				&.empty
+					&.wrapper-cat
+						.preview-holder
+							background-image: url('../assets/images/app/wrapper-cat.png')
+							i
+								bottom: 25px
+								right: 25px
+					&.wrapper-dog
+						.preview-holder
+							background-image: url('../assets/images/app/wrapper-dog.png')
+							i
+								top: 25px
+								right: 25px
+				&.done
+					.preview-holder
+						border: none
+						background-position: cover
+						-webkit-background-size: cover
+						-o-background-size: cover
+						background-size: cover
+						i
+							display: none
+
+		//STEP 2: Provide pet's location
+		.step-wrapper-2
+
+			.description
+				margin-top: 20px
+			.map
+				+set-size(100%, 240px)
+				+set-border-radius(5px)
+				box-shadow: 0px 0px 5px 0px $agrey-light
+				/*background:
+					image: url('../assets/images/app/map-demo.png')
+					position: center bottom
+					size: cover*/
+
+		//STEP 3: Provide pet's description
+		.step-wrapper-3
+			.Pet-description
+
+				.dropdown
+					margin: 0 auto 25px
+
+				.textarea
+					height: 120px
+
+				.extra-area
+					display: none
+				.input, .textarea
+					+placeholder
+						opacity: 1
+					margin-bottom: 25px
+				.btn-big
+					letter-spacing: 0.05em
+					position: relative
+					font-weight: 300
+					i
+						position: absolute
+						left: 15px
+						top: 0.8em
+				.last-seen-custom
+					display: none
+
+				&.custom-date
+					.last-seen-custom
+						display: block
+					.last-seen-dropdown
+						display: none
+
+				&.extra-open
+					.btn-subarea
+						display: none
+					.extra-area
+						display: block
+						.row
+							margin: 0
+							padding-bottom: 25px
+							.col-xs-6
+								&:nth-child(odd)
+									padding: 0 15px 0 0
+								&:nth-child(even)
+									padding: 0 0 0 15px
+							.input
+								margin: 0
+						.dropdown-small
+							margin: 0
+							width: 100%
+							.btn-dropdown
+								margin: 0
+
+/*.fuzzfinders-app .mainpage-wrapper .lost-pet-page-wrapper .ancete-wrapper .step-wrapper-3 .Pet-description .textarea
+	height: 80px*/
+
+// Small phones layout
+
+@media screen and (max-width: 320px)
+	.lost-pet-page-wrapper, .found-pet-page-wrapper
+		.progress-step
+			margin: 15px auto 15px
+		.ancete-wrapper
+			.step-wrapper-1
+				.photo-wrapper .preview-holder.empty
+					height: 140px
+					background:
+						size: auto 90%
+						position: 40% 50%
+			.step-wrapper-2
+				.map
+					height: 200px
+
+@media screen and (max-height: 567px) and (orientation: landscape)
+	.lost-pet-page-wrapper, .found-pet-page-wrapper
+		.ancete-wrapper
+			.title, .description
+				margin: 0 auto 10px
+
+			.step-wrapper-1
+				padding: 0 20%
+				.photo-wrapper
+					.preview-holder.empty
+						height: 120px
+						-webkit-background-size: auto 70%
+						-o-background-size: auto 70%
+						background-size: auto 70%
+						background-position: center center
+
+				.btn-big
+					margin: 10px auto
+
+@media screen and (max-height: 567px)
+	.lost-pet-page-wrapper, .found-pet-page-wrapper
+		.progress-step
+			margin: 25px auto 25px
+		.section-wrapper
+			height: calc(100% - 60px)
+
+
+
+
+
+
+
+
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//				TABLET LAYOUT
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+
+
+@media screen and (min-width: 640px) and (min-height: 640px)
+
+	.lost-pet-page-wrapper, .found-pet-page-wrapper
+		.section-wrapper
+			.progress-step
+				margin: 9% auto 6%
+
+
+		.ancete-wrapper
+			min-height: calc(85% - 50px)
+			[class^="step-wrapper-"]
+				min-height: calc(100% - 32px)
+				height: auto
+			.title
+				margin-bottom: 50px
+			.description
+				margin-bottom: 45px
+			.step-wrapper-1
+				padding: 0 25%
+
+				.photo-wrapper
+					.preview-holder
+						height: 220px
+					.btn-big
+						margin: 50px auto
+
+			.step-wrapper-2
+				padding: 0 45px
+				.description
+					margin: 25px auto
+				.map
+					height: 440px
+				.btn-big
+					margin: 30px auto 0
+
+			.step-wrapper-3
+				padding: 0 15%
+				.Pet-description
+					.textarea
+						height: 250px
+					.dropdown, .textarea, .input, .btn-big
+						margin: 40px auto
+
+					.dropdown.open
+						.dropdown-menu
+							&:before
+								content: ' '
+								position: absolute
+								top: -50px
+								left: 0
+								right: 0
+								bottom: 0
+								box-shadow: 0px 0px 4px 0px rgba($agrey_dark, .5)
+								+transition(box-shadow .3s ease-in)
+
+					&.extra-open
+						.extra-area
+							.row
+								padding: 0
+								margin: 50px auto
+
+
+@media screen and (min-width: 640px) and (min-height: 640px) and (orientation: landscape)
+	.lost-pet-page-wrapper, .found-pet-page-wrapper
+		.section-wrapper
+			.progress-step
+				margin: 5% auto 5%
+			.ancete-wrapper
+				min-height: calc(80% - 50px)
+
+				[class^="step-wrapper-"]
+					height: calc(100% - 150px)
+
+				&.step-1
+					.step-wrapper-1
+						height: auto
+				&.step-2
+					.step-wrapper-2
+						height: auto
+
+				&.step-3
+					.step-wrapper-3
+						height: auto
+
+
+				.title
+					margin-bottom: 20px
+				.description
+					margin-bottom: 25px
+				.step-wrapper-1
+					padding: 0 30%
+					.photo-wrapper
+						.btn-big
+							margin: 30px auto
+
+				.step-wrapper-2
+					padding: 0 10%
+					.description
+						margin: 25px auto
+					.map
+						height: 400px
+					.btn-big
+						margin: 30px auto 0
+
+
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//				DESKTOP LAYOUT
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+@media screen and (min-width: 1025px) and (min-height: 600px)
+	.lost-pet-page-wrapper, .found-pet-page-wrapper
+		top: 120px
+		left: 110%
+		+set-size(905px, 800px)
+
+
+		&.show
+			top: 120px
+			+set-size(905px, auto)
+			min-height: 800px
+			left: calc( 50% - 403px )
+			margin-bottom: 100px
+			overflow-y: auto
+			box-shadow: 0px 5px 20px 0px rgba(0,0,0, .2)
+
+
+			.section-wrapper
+				overflow-y: auto
+
+
+			.ancete-wrapper
+				[class^="step-wrapper-"]
+					height: 400px
+
+		.btn-big
+			min-width: 0

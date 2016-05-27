@@ -1,0 +1,185 @@
+@media screen and (min-width: 1025px) and (min-height: 600px)
+  nav-bar
+    .menu-navigation
+      display: block
+      top: 0
+      left: 0
+      right: 0
+      height: 90px
+      width: 100%
+      opacity: 1
+      padding: 0
+      background-color: white
+      box-shadow: none
+      +transition(all 0.3s ease-in)
+      +clearfix
+      .brand
+        display: block
+        float: left
+        padding: 20px 0
+        .logo
+          margin: 0 30px 0 60px
+          display: inline-block
+          +set-size(40px, 46px)
+          vertical-align: middle
+          font-size: 46px
+          color: lighten($maroon_light, 2)
+          text-shadow: none 
+        .brand-title
+          vertical-align: middle
+          display: inline-block
+          vertical-align: middle
+          font:
+            size: 31px
+            weight: 400                 
+      .profile-wrapper
+        display: block
+        float: right
+        background-color: rgba($grey_light, 0.3)
+        padding: 0 25px
+        height: 100%        
+        .user-photo
+          display: inline-block
+          vertical-align: middle
+          +size(30px)
+          +set-border-radius(50%)
+          background:
+            position: center center
+            size: cover        
+        .user-name
+          display: inline-block
+          vertical-align: middle
+          margin: 0
+          padding-left: 12px
+          cursor: pointer
+          &:before
+            content: ''
+            display: inline-block
+            min-height: inherit
+            height: 100%
+            vertical-align: middle      
+      ul
+        display: block
+        height: 100%
+        float: right
+        .link-home
+          display: none
+        li
+          display: inline-block
+          width: auto
+          color: #ECF0F1
+          vertical-align: middle
+          margin: 0 35px 0 0
+          &:last-child
+            &:before
+              content: ''
+              display: inline-block
+              min-height: inherit
+              height: 100%
+              vertical-align: middle
+          a
+            font-size: 17px
+            line-height: 17px
+            font-weight: 500 
+            color: $agrey_dark
+            letter-spacing: 0em
+            cursor: pointer
+        .desktop-legal
+          display: inline-block
+        .mobile-legal
+          visibility: hidden
+          +set-size(0, 85px)
+          display: inline-block
+          position: static
+          margin: 0
+      .nav-trigger
+        display: none
+    .background-for-navigation
+      position: fixed
+      display: inline-block
+      top: 0
+      left: 0
+      right: 0
+      height: 90px
+      z-index: 1
+      +transition(all 0.3s ease-in)
+  
+  [class^=".navigation-"]
+  nav-bar
+    &.navigation-purple
+      .profile-wrapper
+        background-color: transparent
+        .user-name
+          color: white
+      .brand
+        .brand-title
+          .alt, .trademark
+            color: white
+      ul
+        li a
+          color: white
+        .action a
+          color: white
+          cursor: pointer
+      .background-for-navigation
+        height: 230px
+
+    &.navigation-purple
+      .menu-navigation
+        background-color: $purple_light
+        .brand
+          .brand-title
+            color: #2C3E51
+      .background-for-navigation
+        background-color: rgba($purple_light, 0.8)
+        
+    &.navigation-orange
+      .menu-navigation
+        background-color: $maroon_light
+        .brand
+          .logo
+            color: rgba(#F7F6F4, 0.9)
+          .brand-title
+            color: #2C3E51
+      .background-for-navigation
+        background-color: rgba($maroon_light, 0.8)
+
+    &.navigation-green
+      .menu-navigation
+        background-color: $turquoise_dark
+        .brand
+          .logo
+            color: rgba(#F7F6F4, 0.9)
+          .action a
+            color: #ECF0F1
+      .background-for-navigation
+        background-color: rgba($turquoise_dark, 0.8)
+    
+    &.navigation-blue
+      .menu-navigation
+        background-color: $blue_dark
+        .brand
+          .logo
+            color: rgba(#F7F6F4, 0.9)
+          .action a
+            color: #ECF0F1
+      .background-for-navigation
+        background-color: rgba($blue_dark, 0.8)
+    
+    &.navigation-blue-light
+      .menu-navigation
+        background-color: $blue_light
+        .brand
+          .logo
+            color: rgba(#F7F6F4, 0.9)
+      .background-for-navigation
+        background-color: rgba($blue_light, 0.8)
+      
+    &.navigation-blue-dark
+      .menu-navigation
+        background-color: $asfalt_light
+        .brand
+          .brand-title
+            color: #BDC3C7
+      .background-for-navigation
+        background-color: rgba($asfalt_light, 0.8)

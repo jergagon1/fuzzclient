@@ -1,0 +1,73 @@
+@mixin font_setup($font_size, $font_weight, $font_lineheight, $colour)
+  font:
+    size: $font_size
+    weight: $font_weight
+  color: $colour
+  line-height: $font_lineheight 
+
+@mixin menuFont
+  +font_setup($menu_size, $menu_weight, $menu_size, $menu_colour)
+  &:hover, &:focus, &.focus, &:active, &.active
+    color: $menu_colour_hover
+
+@mixin headerTitleFont
+  @extend .fuzzHeaderTitleFont
+
+@mixin headerTextFont
+  @extend .fuzzHeaderTextFont
+
+@mixin headingFont
+  @extend .fuzzHeadingFont
+
+@mixin headingAccentFont
+  @extend .fuzzHeadingAccentFont
+
+@mixin headingInvertedFont
+  @extend .fuzzHeadingInvertedFont
+
+@mixin paragraphFont
+  @extend .fuzzParagraphFont
+
+@mixin inputsFont
+  @extend .fuzzInputsFont
+
+@mixin buttonText
+  @extend .fuzzButtonText
+
+.fuzzHeaderTitleFont
+  +font_setup($header_size, $header_weight, $header_lineheight, $header_colour)
+.fuzzHeaderTextFont
+  +font_setup($header_text_size, $header_text_weight, $header_text_lineheight, $header_text_colour)
+.fuzzHeadingFont
+  +font_setup($heading_size, $heading_weight, $heading_lineheight, $heading_colour)
+.fuzzHeadingAccentFont
+  @extend .fuzzHeadingFont
+  color: $heading_accent_colour
+.fuzzHeadingInvertedFont
+  @extend .fuzzHeadingFont
+  color: $heading_inverted_colour
+.fuzzParagraphFont
+  +font_setup($paragraph_size, $paragraph_weight, $paragraph_lineheight, $paragraph_colour)
+.fuzzInputsFont
+  +font_setup($inputs_size, $inputs_weight, $inputs_lineheight, $inputs_colour)
+  +placeholder
+    font-weight: $placeholder_weight
+.fuzzButtonText
+  +font_setup($button_text_size, $button_text_weight, $button_text_lineheight, $button_text_colour)
+
+@media screen and (max-width: 480px)
+  .fuzzHeaderTitleFont
+    font-size: $header_responsive_size
+    line-height: $header_responsive_lineheight
+  .fuzzHeaderTextFont
+    font-size: $header_responsive_text_size
+    line-height: $header_responsive_text_lineheight
+  .fuzzHeadingFont
+    font-size: $heading_responsive_size
+    line-height: $heading_responsive_lineheight
+  .fuzzParagraphFont
+    font-size: $paragraph_responsive_size
+    line-height: $paragraph_responsive_lineheight
+  .fuzzInputsFont
+    font-size: $inputs_responsive_size
+    line-height: $inputs_responsive_lineheight

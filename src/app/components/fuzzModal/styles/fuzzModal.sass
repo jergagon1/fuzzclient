@@ -1,0 +1,34 @@
+$offset : 100%
+$center-position: calc( 50% - 453px)
+$animation-duration : 0.3s
+$animation-curve: ease-in-out
+
+fuzz-modal
+  .fuzz-modal-wrapper
+    top: 30px
+    width: 905px
+    height: auto
+    min-height: 800px
+    left: $center-position
+    margin-bottom: 100px
+    overflow-y: auto
+    overflow-x: hidden
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2)
+    position: absolute
+    background-color: #ECF0F1
+    z-index: 200
+    +transition(all $animation-duration $animation-curve)
+
+    -webkit-backface-visibility: hidden
+    -moz-backface-visibility: hidden
+    backface-visibility: hidden
+
+    &.ng-enter
+      left: 100%
+    &.ng-enter.ng-enter-active
+      left: $center-position
+
+    &.ng-leave
+      left: $center-position
+    &.ng-leave.ng-leave-active
+      left: 100%

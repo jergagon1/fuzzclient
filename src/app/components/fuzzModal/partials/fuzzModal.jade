@@ -1,0 +1,5 @@
+.fuzz-modal-wrapper(ng-if='$ctrl.isOpened')
+    .nav-block(ng-class='$ctrl.color')
+        btn.back-arrow(ng-click='$ctrl.close()') X
+        h2.title {{ $ctrl.modal.title }}
+    .section-wrapper(ng-transclude)

@@ -1,0 +1,50 @@
+navBlock
+.section-wrapper
+  mapTrack
+  photoPreview
+  .post-description
+    .header
+      .face-lockup(style="background-image: url({{post.getPetPhoto()}})")
+      .content
+        p Posted by {{post.Autor.name}}
+        p {{post.date()}}
+        p.type {{post.heading()}}
+
+    table.table.table-stripped
+      tr(ng-repeat='item in post.description')
+        td {{item.def}}
+        td {{item.val}}
+    p.description {{post.extraDescription}}
+    //This button visible only to post's author
+    button.btn.btn-big.btn-blue
+      i.icon-edit
+      | Edit Post
+
+  .social-share-wrapper
+    p Share this post to your social network and help pet get back home
+    .buttons-wrapper
+      button.social-facebook
+      button.social-twitter
+      button.social-instagram
+  .comments-wrapper
+    h2 Comments
+
+    //Loop of comments. Olders at start
+    postComment
+
+  form.post-comment
+    // При нажатии на .btn-photo к форме добавляется класс .photo-added, при нажатии на .btn-location — .location-added
+    // С диалогом и выгрузкой на амазон подсобить не могу потому что не уверен, что правильно сделаю при случае ангуляра
+    h2 Post Your Comment
+    textarea.textarea.form-control(placeholder="Type Here", row='4')
+    .photo-wrapper(style="background-image: url('../assets/images/app/dog-demo-2.png')")
+      button.btn-remove
+    .location-wrapper
+      .map
+      .btn-remove
+    .row
+      .col-xs-6
+        button.btn.btn-small.btn-blue.btn-photo(type="button") Upload Photo
+      .col-xs-6
+        button.btn.btn-small.btn-blue.btn-location(type="button") Add a Location
+    button.btn.btn-xbig.btn-blue(type="submit") Post

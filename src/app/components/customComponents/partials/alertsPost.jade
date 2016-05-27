@@ -1,0 +1,18 @@
+//navBlock class options:
+  .lost-post, .found-post
+    if photo not added to post — add classes:
+    .placeholder-dog - for pet type 'Dog'
+    .placeholder-cat - for pet type 'Cat'
+    .placeholder-bird - for pet type 'Bird'
+// This block toggles lost and find post viewer
+h3.title {{item.title}}
+.photo-holder(style="background-image: url('{{item.photoUrl}}')")
+.content-holder
+  table
+    tr
+      td Last Seen
+      td {{item.seen}}
+    tr
+      td Posted by
+      td {{item.author}}
+  a.read-more Read more
