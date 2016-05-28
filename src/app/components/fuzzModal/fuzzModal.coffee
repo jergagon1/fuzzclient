@@ -5,7 +5,7 @@ angular.module('fuzzApp').component 'fuzzModal',
     modal: '<'
   transclude: true
   controller: ($timeout)->
-
+    @activeTab = 1
     $timeout =>
       @color = @modal.color.replace 'navigation', 'nav-block'
       @isOpened = @opened == @modal.name
@@ -16,4 +16,6 @@ angular.module('fuzzApp').component 'fuzzModal',
       $timeout =>
         @opened = false
       , 300
+    @switchTab = ()->
+      if @activeTab == 1 then @close() else @activeTab--
     @

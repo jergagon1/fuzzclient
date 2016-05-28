@@ -1,6 +1,9 @@
 angular.module('fuzzApp').component 'lostFound',
-  templateUrl: 'app/components/fuzzLostFound/partials/lostFound.html',
-  controller: ($scope, FuzzMap, uiGmapGoogleMapApi, Upload)->
+  templateUrl: 'app/components/fuzzLostFound/partials/lostFound.html'
+  bindings:
+    type='@'
+  controller: ($scope, $attrs, FuzzMap, uiGmapGoogleMapApi, Upload)->
+    @formType = $attrs.type
     @openedModal = null
     @map = false
     @lastLocation = ''
@@ -12,6 +15,7 @@ angular.module('fuzzApp').component 'lostFound',
         name: ''
         details: null
     @files = []
+    @foundFiles = []
     #variables for describe pet form
     @extraDetails = false
 

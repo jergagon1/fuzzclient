@@ -19,7 +19,7 @@
 }
 */
  
- [class^="icon-"]:before, [class*=" icon-"]:before {
+ [class^="icon-"]:before, [class*=" icon-"]:before, .connect-fontello {
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
@@ -75,3 +75,6 @@
 .icon-fuzz-print:before { content: '\e814'; } /* '' */
 .icon-description-point:before { content: '\e816'; } /* '' */
 .icon-plus:before { content: '\e817'; } /* '' */
+
+.icon-facebook:before { content: '\e80b'; } /* '' */
+.icon-twitter:before { content: '\e818'; } /* '' */

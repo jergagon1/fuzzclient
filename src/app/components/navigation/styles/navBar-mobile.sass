@@ -1,62 +1,78 @@
-nav-bar
-  .menu-navigation
-    position: fixed
-    top: 0
-    right: -250px
-    opacity: 0.3
-    width: 250px
-    height: 1000px
-    height: 100vh
-    background-color: $asfalt_dark
-    box-shadow: -3px 0px 10px 0px rgba(0,0,0,0.50)
-    z-index: 999
-    padding-top: 100px
-    +transition(all 0.3s ease-in)
+nav-bar .menu-navigation
+  position: fixed
+  top: 0
+  right: -250px
+  opacity: 0.3
+  width: 250px
+  height: 1000px
+  height: 100vh
+  background-color: $asfalt_dark
+  box-shadow: -3px 0px 10px 0px rgba(0,0,0,0.50)
+  z-index: 999
+  padding-top: 100px
+  +transition(all 0.3s ease-in)
+  li
+    display: block
+    width: 80%
+    text-align: left
+    margin: 0 0 30px 10px
+    a
+      font-size: 22px
+      line-height: 22px
+      font-weight: 400
+      letter-spacing: 0.08em
+      color: $grey_light
+    .active
+      opacity: 0.5
+  .desktop-legal
+    display: none
+  .mobile-legal
+    position: absolute
+    bottom: 10px
+    margin: 0 0 3 10px
+    width: 90%
+    a
+      font-size: 14px
+      line-height: 20px
+      font-weight: 500
+      letter-spacing: 0.1em
+      color: $grey_light
+      opacity: 0.8        
+  .action
+    a
+      color: $turquoise_dark    
+  .nav-trigger
+    position: absolute
+    top: 15px
+    right: 4px
+    margin: 0
+  .brand
+    display: none    
+  .profile-wrapper
+    display: none
+  &.open
+    right: 0
+    opacity: 1
+    .extra-area
+      position: fixed
+      width: calc(100vw - 250px)
+      height: 100%
+      top: 0
+      left: 0
+
+@media screen and (max-height: 400px) and (orientation: landscape)
+  nav-bar .menu-navigation
+    padding-top: 80px
     li
-      display: block
-      width: 80%
-      text-align: left
-      margin: 0 0 30px 10px
+      margin-bottom: 15px
       a
-        font-size: 22px
-        line-height: 22px
-        font-weight: 400
-        letter-spacing: 0.08em
-        color: $grey_light
-      .active
-        opacity: 0.5
-    .desktop-legal
-      display: none
-    .mobile-legal
-      position: absolute
-      bottom: 10px
-      margin: 0 0 3 10px
-      width: 90%
-      a
-        font-size: 14px
-        line-height: 20px
-        font-weight: 400
-        letter-spacing: 0.1em
-        color: $grey_light
-        opacity: 0.8        
-    .action
-      a
-        color: $turquoise_dark    
-    .nav-trigger
-      position: absolute
-      top: 15px
-      right: 4px
-      margin: 0    
-    .brand
-      display: none    
-    .profile-wrapper
-      display: none
-    &.open
-      right: 0
-      opacity: 1
-      .extra-area
-        position: fixed
-        width: calc(100vw - 250px)
-        height: 100%
-        top: 0
-        left: 0
+        font-size: 18px
+
+@media screen and (max-height: 320px) and (orientation: landscape)
+  nav-bar .menu-navigation
+    padding-top: 50px
+    li
+      margin-bottom: 15px
+      
+
+@import 'navBar-desktop'

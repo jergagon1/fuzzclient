@@ -36,23 +36,19 @@
       i
         display: none
 
-@media screen and (max-width: 320px)
-  .image-uploader
-    &.empty
-      .preview-holder
-        height: 140px
-        background:
-          size: auto 90%
-          position: 40% 50%
+@media screen and (max-width: 320px) and (max-height: 520px)
+  .image-uploader.empty
+    .preview-holder
+      background:
+        size: auto 90%
+        position: 40% 50%
 
 
 @media screen and (max-height: 567px) and (orientation: landscape)
-  .image-uploader
-    &.empty
-      .preview-holder
-        height: 120px
-        background-size: auto 70%
-        background-position: center center
+  .image-uploader.empty
+    .preview-holder
+      background-size: auto 70%
+      background-position: center center
 
 
 @media screen and (min-width: 640px) and (min-height: 640px)
