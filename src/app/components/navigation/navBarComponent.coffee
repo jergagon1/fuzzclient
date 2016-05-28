@@ -25,7 +25,7 @@ angular.module('fuzzApp').component 'navBar', {
         ''
 
     @getItemClass = (item)->
-      'link-home'
+      'please-fix-classes'
     @getUserPhoto = ->
       'background-image' :'url("'+@user.avatar+'")'
 

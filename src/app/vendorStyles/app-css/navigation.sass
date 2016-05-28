@@ -5,7 +5,7 @@
 	.nav-block
 		+set-size(100%, 80px)
 		
-		display: flex
+		+display(flex)
 		+justify-content(space-between)
 		+align-items(center)
 
@@ -18,7 +18,7 @@
 			font-size: 22px
 			line-height: 22px
 			color: white
-			font-weight: 400
+			font-weight: 500
 			letter-spacing: 1.2px
 		
 			text-transform: uppercase
@@ -53,144 +53,15 @@
 	.fuzzfinders-app
 		.nav-block
 			height: 60px
-
-	//-------------------------------
-	//Ancete Progress
-	//-------------------------------
-.fuzzfinders-app
-	.progress-step
-		width: 260px
-		margin: auto
-		display: flex
-		+justify-content(space-between)
-		+align-items(center)
+			.brand-logo
+				padding: 0
+				font-size: 35px
+	
+@media screen and (max-width: 320px)
+	.fuzzfinders-app .nav-block h2
 		font-size: 18px
-		.step-icon
-			display: table
-			+size(41px)
-			+set-border-radius(40px)
-			background-color: $agrey_light
-			[class*=" icon-"], [class^="icon-"]
-				display: table-cell
-				text-align: center
-				vertical-align: middle
-				color: white
-				
-				font-size: 1em
-				&:before
-					margin: 0
-			.icon-location
-				font-size: 1.1em
-			
-			.icon-photo-edit:before
-				margin-left: 0
-			
-			.icon-fuzz-description:before
-				margin-right: 0
-			
 
-			
-
-		.devider
-			display: block
-			+set-size(50px, 6px)
-			+set-border-radius(3px)
-			background-color: $agrey_light
 	
-	
-	.progress-orange
-		.step-1
-			background-color: $maroon_light
-		&.step-2
-			.step-2
-				background-color: $maroon_light
-		&.step-3
-			.step-2,.step-3
-				background-color: $maroon_light
-	
-	.progress-green
-		.step-1
-			background-color: $turquoise_dark
-		&.step-2
-			.step-2
-				background-color: $turquoise_dark
-		&.step-3
-			.step-2,.step-3
-				background-color: $turquoise_dark
-	
-	.progress-purple
-		.step-1
-			background-color: $purple_light
-		&.step-2
-			.step-2
-				background-color: $purple_light
-		&.step-3
-			.step-2,.step-3
-				background-color: $purple_light
-	
-
-
-
-
-
-
-//-------------------------------
-//Navigation Menu
-//-------------------------------
-.fuzzfinders-app
-	.menu-navigation
-		position: fixed
-		top: 0
-		right: -250px
-		opacity: 0.3
-		width: 250px
-		height: 1000px
-		height: 100vh
-		background-color: $asfalt_dark
-		box-shadow: -3px 0px 10px 0px rgba(0,0,0,0.50)
-		z-index: 999
-		
-		padding-top: 100px
-		
-		+transition(all 0.3s ease-in)
-		li
-			display: block
-			width: 80%
-			text-align: left
-			margin: 0 0 30px 10px
-			
-			a
-				font-size: 22px
-				line-height: 22px
-				font-weight: 400
-				letter-spacing: 0.08em
-				color: $grey_light
-				
-		.action
-			a
-				color: $turquoise_dark
-		
-		.nav-trigger
-			position: absolute
-			top: 15px
-			right: 4px
-			margin: 0
-		
-		.brand
-			display: none
-		
-		.profile-wrapper
-			display: none
-		
-		&.open
-			right: 0
-			opacity: 1
-			.extra-area
-				position: fixed
-				width: calc(100vw - 250px)
-				height: 100%
-				top: 0
-				left: 0
 //---------------------------------------------------------------
 //---------------------------------------------------------------
 //				DESKTOP LAYOUT
@@ -198,238 +69,8 @@
 //---------------------------------------------------------------
 
 
-@media screen and (min-width: 1025px) and (min-height: 600px)
+@media screen and (min-width: 1025px) and (min-height: 500px)
 	.fuzzfinders-app
-		.menu-navigation
-			display: block
-			top: 0
-			left: 0
-			right: 0
-			height: 90px
-			width: 100%
-			opacity: 1
-			padding: 0
-			background-color: white
-			box-shadow: none
-			+transition(all 0.3s ease-in)
-			+clearfix
-
-			.brand
-				display: block
-				float: left
-				padding: 20px 0
-				.logo
-					margin: 0 30px 0 60px
-					display: inline-block
-					+set-size(40px, 46px)
-					background-image: url('../assets/images/logo.png')
-					vertical-align: middle
-				
-				.brand-title
-					vertical-align: middle
-					display: inline-block
-					vertical-align: middle
-					font:
-						size: 31px
-						weight: 400				
-					
-			.profile-wrapper
-				display: block
-				float: right
-				background-color: rgba($grey_light, 0.3)
-				padding: 0 25px
-				height: 100%
-				
-				.user-photo
-					display: inline-block
-					vertical-align: middle
-					+size(30px)
-					+set-border-radius(50%)
-					background:
-						position: center center
-						size: cover
-				
-				.user-name
-					display: inline-block
-					vertical-align: middle
-					margin: 0
-					padding-left: 12px 
-					&:before
-						content: ''
-						display: inline-block
-						min-height: inherit
-						height: 100%
-						vertical-align: middle
-						
-
-			
-			ul
-				display: block
-				height: 100%
-				float: right
-				.link-home
-					display: none
-				li
-					display: inline-block
-					width: auto
-					color: #ECF0F1
-					vertical-align: middle
-					margin: 0 35px 0 0
-					&:last-child
-						&:before
-							content: ''
-							display: inline-block
-							min-height: inherit
-							height: 100%
-							vertical-align: middle
-					a
-						font-size: 17px
-						line-height: 17px
-						font-weight: 500 
-						color: $agrey_dark
-						letter-spacing: 0em
-
-			.nav-trigger
-				display: none
-		.background-for-navigation
-			position: fixed
-			display: inline-block
-			top: 0
-			left: 0
-			right: 0
-			height: 90px
-			z-index: 1
-			+transition(all 0.3s ease-in)
-
-
-		&.navigation-purple
-			.menu-navigation
-				background-color: $purple_light
-				.profile-wrapper
-					background-color: transparent
-					.user-name
-						color: white
-				.brand
-					.brand-title
-						color: #2C3E51
-						.alt, .trademark
-							color: white
-				ul
-					li a
-						color: white
-					.action	a
-						color: white
-			.background-for-navigation
-				background-color: rgba($purple_light, 0.8)
-				height: 230px
-				
-		&.navigation-orange
-			.menu-navigation
-				background-color: $maroon_light
-				.profile-wrapper
-					background-color: transparent
-					.user-name
-						color: white
-				.brand
-					.logo
-						background-image: url('../assets/images/logo-white.png')
-					.brand-title
-						color: #2C3E51
-						.alt, .trademark
-							color: white
-				ul
-					li a
-						color: white
-					.action	a
-						color: white
-			.background-for-navigation
-				background-color: rgba($maroon_light, 0.8)
-				height: 230px
-
-		
-		&.navigation-green
-			.menu-navigation
-				background-color: $turquoise_dark
-				.profile-wrapper
-					background-color: transparent
-					.user-name
-						color: white
-				.brand
-					.brand-title
-						.alt, .trademark
-							color: white
-				ul
-					li a 
-						color: white
-					.action a
-						color: #ECF0F1
-			.background-for-navigation
-				background-color: rgba($turquoise_dark, 0.8)
-				height: 230px
-		
-		
-		&.navigation-blue
-			.menu-navigation
-				background-color: $blue_dark
-				.profile-wrapper
-					background-color: transparent
-					.user-name
-						color: white
-				.brand
-					.brand-title
-						.alt, .trademark
-							color: white
-				ul
-					li a 
-						color: white
-					.action a
-						color: #ECF0F1
-			.background-for-navigation
-				background-color: rgba($blue_dark, 0.8)
-				height: 230px
-		
-
-		&.navigation-blue-light
-			.menu-navigation
-				background-color: $blue_light
-				.profile-wrapper
-					background-color: transparent
-					.user-name
-						color: white
-				.brand
-					.brand-title
-						.alt, .trademark
-							color: white
-				ul
-					li a 
-						color: white
-					.action a
-						color: #ECF0F1
-			.background-for-navigation
-				background-color: rgba($blue_light, 0.8)
-				height: 230px
-			
-
-		&.navigation-blue-dark
-			.menu-navigation
-				background-color: $asfalt_light
-				.profile-wrapper
-					background-color: transparent
-					.user-name
-						color: white
-				.brand
-					.brand-title
-						color: #BDC3C7
-						.alt, .trademark
-							color: white
-				ul
-					li a 
-						color: white
-					.action a
-						color: #ECF0F1
-			.background-for-navigation
-				background-color: rgba($asfalt_light, 0.8)
-				height: 230px
 		
 		.nav-block
 			+display(block)
@@ -440,5 +81,3 @@
 				left: 15px
 			.title
 				line-height: 70px
-
-	

@@ -1,17 +1,24 @@
 nav-bar(ng-class='finder.getActiveClass()')
 .mainpage-wrapper
+  .nav-trigger.nav-trigger-black
+    span
+    span
+    span
   .content-wrapper
     .brand
       .logo
+      h1.brand-title
+        | Fuzz
+        span.alt Finders
+        span.trademark TM
 
-    button.btn.btn-orange(ng-click='finder.openModal("lostPet")') I lost a pet
-    button.btn.btn-green(ng-click='finder.openModal("foundPet")') I found a pet
+    button.btn.btn-orange(ng-click='finder.openModal("lostPet")') I Lost a Pet
+    button.btn.btn-green(ng-click='finder.openModal("foundPet")') I Found a Pet
     button.btn.btn-blue(ng-click='finder.openModal("localFuzz")') Local FuzzAlerts
 
-    fuzz-modal(ng-if='finder.modalOpened("lostPet")', opened='finder.openedModal', modal='finder.modals.lostPet')
-      lost-found
-
-
-    fuzz-modal(ng-if='finder.modalOpened("foundPet")', opened='finder.openedModal', modal='finder.modals.foundPet')
-    fuzz-modal.pet-sightings-page-wrapper(ng-if='finder.modalOpened("localFuzz")', opened='finder.openedModal', modal='finder.modals.localFuzz')
-      fuzz-alert
+  fuzz-modal(ng-if='finder.modalOpened("lostPet")', opened='finder.openedModal', modal='finder.modals.lostPet')
+    lost-found(type='lost')
+  fuzz-modal(ng-if='finder.modalOpened("foundPet")', opened='finder.openedModal', modal='finder.modals.foundPet')
+    lost-found(type='found')
+  fuzz-modal.pet-sightings-page-wrapper(ng-if='finder.modalOpened("localFuzz")', opened='finder.openedModal', modal='finder.modals.localFuzz')
+    fuzz-alert

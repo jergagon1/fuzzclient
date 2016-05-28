@@ -1,5 +1,10 @@
 .fuzz-modal-wrapper(ng-if='$ctrl.isOpened')
-    .nav-block(ng-class='$ctrl.color')
-        btn.back-arrow(ng-click='$ctrl.close()') X
-        h2.title {{ $ctrl.modal.title }}
-    .section-wrapper(ng-transclude)
+  .nav-block(ng-class='$ctrl.color')
+    btn.back-arrow(ng-click='$ctrl.switchTab()')
+      i.icon-back
+    h2.title {{ $ctrl.modal.title }}
+    .nav-trigger.nav-trigger-white
+      span
+      span
+      span
+  .section-wrapper(ng-transclude)

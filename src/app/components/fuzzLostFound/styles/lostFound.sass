@@ -1,0 +1,321 @@
+fuzz-modal
+  .section-wrapper
+    height: calc(100% - 80px)
+    min-height: calc(100vh - 100px)
+    overflow-y: scroll
+    form
+      padding: 0 40px
+      md-content
+        background: transparent
+        .title
+          margin: 0 0 15px
+        .description
+          margin-bottom: 15px
+          padding: 0 10px
+        .btn.btn-big
+          margin: 20px auto
+
+  .section-wrapper
+    md-tabs[md-border-bottom], md-tabs-wrapper
+      border: none !important
+    md-tabs-canvas
+      display: block 
+      height: auto
+      margin: 25px auto
+      md-pagination-wrapper
+        width: 255px !important
+        height: auto
+        margin: auto
+        position: static
+        md-ink-bar
+          display: none
+        md-tab-item
+          padding: 0
+          .md-ripple-container
+            display: none
+          .step-icon
+            display: block
+            +set-size(auto, 41px)
+            [class^='icon-']
+              display: inline-block
+              // $grey_light
+              background-color: #95A5A6
+              +set-border-radius(50%)
+              +size(41px)
+              vertical-align: middle
+              font-size: 18px
+              line-height: 41px
+              color: white
+            .icon-photo-edit
+              &:before
+                margin: -0.1em 0 0 0
+            .devider
+              display: inline-block
+              +set-size(48px, 41px)
+              margin: 0 7px
+              position: relative
+              vertical-align: middle
+              &:before
+                content: ' '
+                display: block
+                position: absolute
+                top: 50%
+                margin-top: -3px
+                +set-size(48px, 6px)
+                +set-border-radius(3px)
+                background-color: #95A5A6
+          
+    
+    md-tabs-canvas[aria-activedescendant="tab-item-0"]
+      md-pagination-wrapper md-tab-item
+        .step-icon.step-1
+          .icon-photo-edit
+            background-color: $maroon_light
+    
+    md-tabs-canvas[aria-activedescendant="tab-item-1"]
+      md-pagination-wrapper md-tab-item
+        .step-icon.step-1
+          .icon-photo-edit
+            background-color: $maroon_light
+          .devider.step-2
+            &:before
+              background-color: $maroon_light
+        .step-icon.step-2
+          .icon-location
+            background-color: $maroon_light
+    
+    md-tabs-canvas[aria-activedescendant="tab-item-2"]
+      md-pagination-wrapper md-tab-item
+        .step-icon.step-1
+          .icon-photo-edit
+            background-color: $maroon_light
+          .devider.step-2
+            &:before
+              background-color: $maroon_light
+        .step-icon.step-2
+          .icon-location
+            background-color: $maroon_light
+          .devider.step-3
+            &:before
+              background-color: $maroon_light
+        .step-icon.step-3
+          .icon-fuzz-description
+            background-color: $maroon_light
+
+
+    height: calc(100% - 80px)
+    overflow-y: scroll
+    form
+      padding: 0 40px
+      md-content
+        &.md-padding
+          padding: 0
+        background: transparent
+        .title
+          margin: 0 0 15px
+        .description
+          margin-bottom: 15px
+          padding: 0 10px
+          &.for-map
+            margin-top: 20px
+        .btn.btn-big
+          margin: 20px auto
+        .input
+          +placeholder
+            opacity: 1
+        .textarea
+          height: 68px
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+      .Pet-description
+        .dropdown
+          margin: 0 auto 25px
+        .textarea
+          height: 120px
+          font-weight: 500 
+          opacity: 1
+        .input, .textarea
+          overflow: hidden
+          +placeholder
+            opacity: 1
+            font-weight: 500 
+          margin-bottom: 25px
+        .btn.btn-dropdown
+          margin: 25px auto
+          &:hover
+            color: $asfalt_dark
+        .btn-big
+          letter-spacing: 0.05em
+          position: relative
+          font-weight: 300 
+          i
+            position: absolute
+            left: 15px
+            top: 0.8em
+        .extra-area
+          .row
+            margin: 0
+            padding-bottom: 25px
+            .col-xs-6
+              &:nth-child(odd)
+                padding: 0 15px 0 0
+              &:nth-child(even)
+                padding: 0 0 0 15px
+            .input
+              margin: 0
+          .dropdown-small
+            margin: 0
+            width: 100%
+          .btn
+            margin: 0
+
+
+  .progress-green
+    md-tabs-canvas[aria-activedescendant="tab-item-0"]
+      md-pagination-wrapper md-tab-item
+        .step-icon.step-1
+          .icon-photo-edit
+            background-color: $turquoise_dark
+    md-tabs-canvas[aria-activedescendant="tab-item-1"]
+      md-pagination-wrapper md-tab-item
+        .step-icon.step-1
+          .icon-photo-edit
+            background-color: $turquoise_dark
+          .devider.step-2
+            &:before
+              background-color: $turquoise_dark
+        .step-icon.step-2
+          .icon-location
+            background-color: $turquoise_dark
+    md-tabs-canvas[aria-activedescendant="tab-item-2"]
+      md-pagination-wrapper md-tab-item
+        .step-icon.step-1
+          .icon-photo-edit
+            background-color: $turquoise_dark
+          .devider.step-2
+            &:before
+              background-color: $turquoise_dark
+        .step-icon.step-2
+          .icon-location
+            background-color: $turquoise_dark
+          .devider.step-3
+            &:before
+              background-color: $turquoise_dark
+        .step-icon.step-3
+          .icon-fuzz-description
+            background-color: $turquoise_dark
+//Mobile layouts
+@media screen and (max-width: 320px)
+  fuzz-modal .section-wrapper md-tabs-canvas
+    margin: 15px auto
+
+@media screen and (max-width: 340px)
+  fuzz-modal
+    .section-wrapper form
+      padding: 0 10px
+      .title
+        font-size: 18px
+    md-tabs-content-wrapper
+      padding: 0 30px
+
+@media screen and (max-height: 567px) and (orientation: landscape)
+  fuzz-modal .section-wrapper form md-content
+    .title, .description
+      margin: 0 auto 10px
+    .btn.btn-big
+      margin: 10px auto
+    .step-wrapper-1
+      padding: 0 15%
+
+@media screen and (max-height: 567px)
+  fuzz-modal .section-wrapper
+    height: calc(100% - 60px)
+    md-tabs-canvas
+      margin: 25px auto
+
+//Tablet layout
+@media screen and (min-width: 640px) and (min-height: 640px)
+  fuzz-modal .section-wrapper
+    md-tabs-canvas
+      margin: 9% auto 6%
+    form
+      md-content
+        .title
+          margin-bottom: 50px
+        .description
+          margin-bottom: 45px
+          padding: 0 40px
+        .step-wrapper-1
+          padding: 0 22%
+          .btn.btn-big
+            margin: 50px auto
+            min-width: 0
+        .step-wrapper-2
+          padding: 0 45px
+          .description
+            margin: 25px auto
+          .btn.btn-big
+            margin: 30px auto 0
+        .step-wrapper-3
+          padding: 0 15%
+          .Pet-description
+            .textarea
+              height: 250px
+              font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+            .dropdown, .textarea, .input, .btn-big
+              margin: 40px auto
+            
+            .dropdown.open
+              .dropdown-menu
+                &:before
+                  content: ' '
+                  z-index: -1
+                  position: absolute
+                  top: -50px
+                  left: 0
+                  right: 0
+                  bottom: 0
+                  box-shadow: 0px 0px 4px 0px rgba($agrey_dark, .5)
+                  +transition(box-shadow .3s ease-in)
+                  +set-border-radius(5px)
+            .extra-area
+              .row
+                padding: 0
+                margin: 40px auto
+                .dropdown
+                  margin: auto
+@media screen and (min-width: 640px) and (min-height: 640px) and (orientation: landscape)
+  fuzz-modal .section-wrapper
+    md-tabs-canvas
+      margin: 5% auto 5%
+    form
+      md-content
+        .title
+          margin-bottom: 20px
+        .description
+          margin-bottom: 25px 
+        .step-wrapper-1
+          padding: 0 30%
+          .btn.btn-big
+            margin: 30px auto
+            
+        
+//Desctop layout
+@media screen and (min-width: 1025px) and (min-height: 500px)
+  fuzz-modal
+    .section-wrapper
+      height: auto
+      overflow-y: auto
+      md-tabs-canvas
+        margin: 30px auto
+      form md-content
+        .title
+          margin: 20px auto
+          letter-spacing: -0.015em
+        .step-wrapper-1
+          padding: 0 28%
+          .btn.btn-big
+            margin: 30px auto
+        .step-wrapper-2
+          padding-bottom: 70px
+        .step-wrapper-3
+          padding-bottom: 30px

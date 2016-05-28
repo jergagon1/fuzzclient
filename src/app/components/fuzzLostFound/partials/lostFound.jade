@@ -1,120 +1,344 @@
-form(name='$ctrl.lostForm')
-  md-content
+form.lost-found-form(ng-if='$ctrl.formType == "lost"' name='$ctrl.lostForm')
+  md-content.progress-red
     md-tabs(md-dynamic-height, md-border-bottom)
-      md-tab(label="one")
-        md-content.md-padding
-          h3 Tab One
-          p.description Photos are the best way to identify a missing pet!
-          .photo-wrapper
-            .form-group.image-uploader.wrapper-cat.empty
-              .preview-holder(ngf-drop, ng-model="$ctrl.files", ng-show='$ctrl.files.length == 0')
-                i.icon-photo-edit
-              .preview-holder(ngf-thumbnail="$ctrl.files[0]", ngf-size="{quality: 0.9}", ngf-as-background="true", ng-show='$ctrl.files.length != 0')
-              btn.btn.btn-big.btn-green.btn-new(
-              ng-model="$ctrl.files"
-              ngf-multiple="true"
-              ngf-select="$ctrl.uploadMultiple($files)"
-              ngf-pattern="'image/*'"
-              ) {{$ctrl.files.length != 0 ? 'Upload Another Photo' : 'Upload Photo'}}
-              btn.btn.btn-big.btn-blue.btn-new.btn-toggler {{$ctrl.files.length != 0 ? 'Continue' : 'Continue without Photo'}}
-      md-tab(label="two")
-        md-content.md-padding(ng-if='$ctrl.map')
-          h3.title Enter last known location
-          md-input-container.md-block
-            input(
-            type="text",
-            name='locationLost'
-            ng-model="$ctrl.locations.lost.name",
-            ng-autocomplete,
-            details='$ctrl.locations.lost.details'
+      md-tab(md-active='1 == $ctrl.activeTab')
+        md-tab-label
+          .step-icon.step-1
+            .icon-photo-edit
+            .devider.step-2
+        md-tab-body
+          md-content.md-padding.step-wrapper-1
+            h3.title Snap a Photo
+            p.description Photos are the best way to identify a missing pet!
+            .photo-wrapper
+              .form-group.image-uploader.wrapper-cat.empty
+                btn(
+                ng-model="$ctrl.files"
+                ngf-multiple="true"
+                ngf-select="$ctrl.uploadMultiple($files)"
+                ngf-pattern="'image/*'"
+                )
+                  .preview-holder(ngf-drop, ng-model="$ctrl.files", ng-show='$ctrl.files.length == 0')
+                    i.icon-photo-edit
+                  .preview-holder(ngf-thumbnail="$ctrl.files[0]", ngf-size="{quality: 0.9}", ngf-as-background="true", ng-show='$ctrl.files.length != 0')
+                btn.btn.btn-big.btn-green(
+                ng-model="$ctrl.files"
+                ngf-multiple="true"
+                ngf-select="$ctrl.uploadMultiple($files)"
+                ngf-pattern="'image/*'"
+                ) {{$ctrl.files.length != 0 ? 'Upload Another Photo' : 'Upload Photo'}}
+                btn.btn.btn-big.btn-blue {{$ctrl.files.length != 0 ? 'Continue' : 'Continue without Photo'}}
+      md-tab(md-active='2 == $ctrl.activeTab')
+        md-tab-label
+          .step-icon.step-2
+            .icon-location
+            .devider.step-3
+        md-tab-body
+          md-content.md-padding.step-wrapper-2(ng-if='$ctrl.map')
+            h3.title Enter last known location
+            .form-group.empty
+              input.input.form-control(
+              type="text",
+              placeholder='Type address here',
+              name='locationLost'
+              ng-model="$ctrl.locations.lost.name",
+              ng-autocomplete,
+              details='$ctrl.locations.lost.details'
+              )
+            p.description.for-map Or drag map pin to location
+            ui-gmap-google-map.lost-map(
+            center='$ctrl.map.coordinates.center',
+            zoom='$ctrl.map.coordinates.zoom',
+            options='$ctrl.map.options'
+            events='$ctrl.map.events'
             )
+              ui-gmap-marker(
+              idKey='1',
+              coords='$ctrl.map.markerSettings.position',
+              options='$ctrl.map.markerSettings.options'
+              )
+            button.btn.btn-big.btn-blue.btn-new.btn-toggler {{$ctrl.location.length !=0 ? 'Use Location Provided' : 'Use My Current Location'}}
+      md-tab(md-active='3 == $ctrl.activeTab')
+        md-tab-label
+          .step-icon.step-3
+            .icon-fuzz-description
+        md-tab-body
+          md-content.md-padding.step-wrapper-3
+            h2.title Describe your pet
+            .Pet-description
+              .dropdown
+                btn#lost-pet-type-btn.btn.btn-dropdown.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
+                  | Pet type
+                  span.caret
+                ul.dropdown-menu(aria-labelledby='lost-pet-type-btn')
+                  li
+                    a(href="#") Dog
+                  li
+                    a(href="#") Cat
+                  li
+                    a(href="#") Bird
+                  li
+                    a(href="#") Other
+              .form-group
+                input.input.input-small.form-control(
+                type='text',
+                placeholder='Pet name',
+                name='petName',
+                ng-model='$ctrl.lost.petName'
+                )
+              .form-group
+                .dropdown.last-seen-dropdown
+                  btn#lost-pet-seen-btn.btn.btn-dropdown.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
+                    | Time last seen
+                    span.caret
+                  ul.dropdown-menu(aria-labelledby='lost-pet-seen-btn')
+                    li
+                      a(href="#") Just now
+                    li
+                      a(href="#") 1 hour ago
+                    li
+                      a(href="#") 2 hours ago
+                    li
+                      a(href="#") 12 hours ago
+                    li
+                      a(href="#") 24 hours ago
+              .form-group
+                textarea.textarea.form-control(
+                placeholder='Briefly describe the incident',
+                rows="2",
+                name='incidentDesc',
+                ng-model='$ctrl.lost.incidentDesc'
+                )
+              .form-group.extra-area(ng-show='$ctrl.extraDetails')
+                .row
+                  .col-xs-6
+                    .dropdown.dropdown-small
+                      btn#sightings-gender-btn.btn.btn-dropdown.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
+                        | Gender
+                        span.caret
+                      ul.dropdown-menu(aria-labelledby='sightings-gender-btn')
+                        li
+                          a(href="#") Male
+                        li
+                          a(href="#") Female
+                  .col-xs-6
+                    .dropdown.dropdown-small
+                      btn#sightings-size-btn.btn.btn-dropdown.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
+                        | Size
+                        span.caret
+                      ul.dropdown-menu(aria-labelledby='sightings-size-btn')
+                        li
+                          a(href="#") Small
+                        li
+                          a(href="#") Medium
+                        li
+                          a(href="#") Large
+                .row
+                  .col-xs-6
+                    .dropdown.dropdown-small
+                      btn#sightings-age-btn.btn.btn-dropdown.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
+                        | Age
+                        span.caret
+                      ul.dropdown-menu(aria-labelledby='sightings-age-btn')
+                        li
+                          a(href="#") Baby
+                        li
+                          a(href="#") Young
+                        li
+                          a(href="#") Adult
+                        li
+                          a(href="#") Senior
+                  .col-xs-6
+                    input.input.input-small.form-control(
+                    type='text',
+                    placeholder='Pet color',
+                    name='petColor',
+                    ng-model='$ctrl.petColor'
+                    )
+                input.input.input-small.form-control(
+                type='text',
+                placeholder='Pet breed',
+                name='breed',
+                ng-model='$ctrl.breed'
+                )
+                input.input.input-small.form-control(
+                type='text',
+                placeholder='Additional keywords',
+                name='keywords',
+                ng-model='$ctrl.keywords'
+                )
+              button.btn.btn-big.btn-green.btn-subarea(
+              ng-click='$ctrl.showDetailsForm()',
+              ng-show='!$ctrl.extraDetails',
+              ) Add pet Details
+                i.icon-plus.pull-left
+              button.btn.btn-big.btn-blue(ng-click='$ctrl.submitForm("lostForm")') Submit
 
-          ui-gmap-google-map.lost-map(
-          center='$ctrl.map.coordinates.center',
-          zoom='$ctrl.map.coordinates.zoom',
-          options='$ctrl.map.options'
-          events='$ctrl.map.events'
-          )
-            ui-gmap-marker(
-            idKey='1',
-            coords='$ctrl.map.markerSettings.position',
-            options='$ctrl.map.markerSettings.options'
+form.lost-found-form(ng-if='$ctrl.formType == "found"' name='$ctrl.foundForm')
+  md-content.progress-green
+    md-tabs(md-dynamic-height, md-border-bottom)
+      md-tab(md-active='1 == $ctrl.activeTab')
+        md-tab-label
+          .step-icon.step-1
+            .icon-photo-edit
+            .devider.step-2
+        md-tab-body
+          md-content.md-padding.step-wrapper-1
+            h3.title Snap a Photo
+            p.description Photos are the best way to identify a&nbsp;missing pet!
+            .photo-wrapper
+              .form-group.image-uploader.wrapper-dog.empty
+                btn(
+                ng-model="$ctrl.files"
+                ngf-multiple="true"
+                ngf-select="$ctrl.uploadMultiple($files)"
+                ngf-pattern="'image/*'"
+                )
+                  .preview-holder(ngf-drop, ng-model="$ctrl.files", ng-show='$ctrl.files.length == 0')
+                    i.icon-photo-edit
+                  .preview-holder(ngf-thumbnail="$ctrl.files[0]", ngf-size="{quality: 0.9}", ngf-as-background="true", ng-show='$ctrl.files.length != 0')
+                btn.btn.btn-big.btn-green(
+                ng-model="$ctrl.files"
+                ngf-multiple="true"
+                ngf-select="$ctrl.uploadMultiple($files)"
+                ngf-pattern="'image/*'"
+                ) {{$ctrl.files.length != 0 ? 'Upload Another Photo' : 'Upload Photo'}}
+                btn.btn.btn-big.btn-blue {{$ctrl.files.length != 0 ? 'Continue' : 'Continue without Photo'}}
+      md-tab(md-active='2 == $ctrl.activeTab')
+        md-tab-label
+          .step-icon.step-2
+            .icon-location
+            .devider.step-3
+        md-tab-body
+          md-content.md-padding.step-wrapper-2(ng-if='$ctrl.map')
+            h3.title Enter last known location
+            .form-group.empty
+              input.input.form-control(
+              type="text",
+              placeholder='Type address here',
+              name='locationFound'
+              ng-model="$ctrl.locations.found.name",
+              ng-autocomplete,
+              details='$ctrl.locations.found.details'
+              )
+            p.description.for-map Or drag map pin to location
+            ui-gmap-google-map.found-map(
+            center='$ctrl.map.coordinates.center',
+            zoom='$ctrl.map.coordinates.zoom',
+            options='$ctrl.map.options'
+            events='$ctrl.map.events'
             )
-      md-tab(label="three")
-        md-content.md-padding
-          h2.title Describe your pet
-          .Pet-description.extra-open
-            .form-group
-              select.form-control(name='petType', ng-model='$ctrl.petType')
-                option Pet Type
-                option(value='Dog') Dog
-                option(value='Cat') Cat
-                option(value='Bird') Bird
-                option(value='Other') Other
-            .form-group
-              input.form-control(
-              type='text',
-              placeholder='Pet name',
-              name='petName'
-              ng-model='$ctrl.lost.petName'
+              ui-gmap-marker(
+              idKey='1',
+              coords='$ctrl.map.markerSettings.position',
+              options='$ctrl.map.markerSettings.options'
               )
-            .form-group
-              select.form-control(name='lastSeen', ng-model='$ctrl.lastSeen')
-                option Time last seen
-                option(value='now') Just Now
-                option(value='1') 1 hour ago
-                option(value='2') 2 hour ago
-                option(value='12') 12 hour ago
-                option(value='24') 24 hour ago
-            .form-group
-              textarea.form-control(
-              placeholder='Briefly describe the incident',
-              name='incidentDesc'
-              ng-model='$ctrl.lost.incidentDesc'
-              )
-            .form-group(ng-show='$ctrl.extraDetails')
-              .row
-                .col-xs-6
-                  select.form-control(name='gender', ng-model='$ctrl.petGender')
-                    option Gender
-                    option(value='Male') Male
-                    option(value='Female') Female
-                .col-xs-6
-                  select.form-control(name='petSize')
-                    option Size
-                    option(value='Small') Small
-                    option(value='Medium') Medium
-                    option(value='Large') Large
-              .row
-                .col-xs-6
-                  select.form-control(name='$ctrl.petAge', ng-model='$ctrl.petAge')
-                    option Age
-                    option(value='Baby') Baby
-                    option(value='Young') Young
-                    option(value='Adult') Adult
-                    option(value='Senior') Senior
-                .col-xs-6
-                  input.form-control(
-                  type='text',
-                  placeholder='Pet color',
-                  name='petColor',
-                  ng-model='$ctrl.petColor'
-                  )
-              input.form-control(
-              type='text',
-              placeholder='Pet Breed',
-              name='breed',
-              ng-model='$ctrl.breed'
-              )
-              input.form-control(
-              type='text',
-              placeholder='Additional Keywords',
-              name='keywords',
-              ng-model='$ctrl.keywords'
-              )
-            button.btn.btn-big.btn-green.btn-subarea(
-            ng-click='$ctrl.showDetailsForm()',
-            ng-show='!$ctrl.extraDetails',
-            ) Add pet Details
-              i.icon-plus.pull-left
-            button.btn.btn-big.btn-blue(ng-click='$ctrl.submitForm("lostForm")') Submit
+            button.btn.btn-big.btn-blue.btn-new.btn-toggler {{$ctrl.location.length !=0 ? 'Use Location Provided' : 'Use My Current Location'}}
+      md-tab(md-active='3 == $ctrl.activeTab')
+        md-tab-label
+          .step-icon.step-3
+            .icon-fuzz-description
+        md-tab-body
+          md-content.md-padding.step-wrapper-3
+            h2.title Describe the pet
+            .Pet-description
+              .dropdown
+                btn#found-pet-type-btn.btn.btn-dropdown.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
+                  | Pet type
+                  span.caret
+                ul.dropdown-menu(aria-labelledby='found-pet-type-btn')
+                  li
+                    a(href="#") Dog
+                  li
+                    a(href="#") Cat
+                  li
+                    a(href="#") Bird
+                  li
+                    a(href="#") Other
+              .form-group
+                .dropdown.last-seen-dropdown
+                  btn#found-pet-seen-btn.btn.btn-dropdown.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
+                    | Time last seen
+                    span.caret
+                  ul.dropdown-menu(aria-labelledby='found-pet-seen-btn')
+                    li
+                      a(href="#") Just now
+                    li
+                      a(href="#") 1 hour ago
+                    li
+                      a(href="#") 2 hours ago
+                    li
+                      a(href="#") 12 hours ago
+                    li
+                      a(href="#") 24 hours ago
+              .form-group
+                textarea.textarea.form-control(
+                placeholder='Briefly describe the incident',
+                rows="2",
+                name='incidentDesc',
+                ng-model='$ctrl.found.incidentDesc'
+                )
+              .form-group.extra-area(ng-show='$ctrl.extraDetails')
+                .row
+                  .col-xs-6
+                    .dropdown.dropdown-small
+                      btn#sightings-gender-btn.btn.btn-dropdown.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
+                        | Gender
+                        span.caret
+                      ul.dropdown-menu(aria-labelledby='sightings-gender-btn')
+                        li
+                          a(href="#") Male
+                        li
+                          a(href="#") Female
+                  .col-xs-6
+                    .dropdown.dropdown-small
+                      btn#sightings-size-btn.btn.btn-dropdown.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
+                        | Size
+                        span.caret
+                      ul.dropdown-menu(aria-labelledby='sightings-size-btn')
+                        li
+                          a(href="#") Small
+                        li
+                          a(href="#") Medium
+                        li
+                          a(href="#") Large
+                .row
+                  .col-xs-6
+                    .dropdown.dropdown-small
+                      btn#sightings-age-btn.btn.btn-dropdown.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='true')
+                        | Age
+                        span.caret
+                      ul.dropdown-menu(aria-labelledby='sightings-age-btn')
+                        li
+                          a(href="#") Baby
+                        li
+                          a(href="#") Young
+                        li
+                          a(href="#") Adult
+                        li
+                          a(href="#") Senior
+                  .col-xs-6
+                    input.input.input-small.form-control(
+                    type='text',
+                    placeholder='Pet color',
+                    name='petColor',
+                    ng-model='$ctrl.petColor'
+                    )
+                input.input.input-small.form-control(
+                type='text',
+                placeholder='Pet breed',
+                name='breed',
+                ng-model='$ctrl.breed'
+                )
+                input.input.input-small.form-control(
+                type='text',
+                placeholder='Additional keywords',
+                name='keywords',
+                ng-model='$ctrl.keywords'
+                )
+              button.btn.btn-big.btn-green.btn-subarea(
+              ng-click='$ctrl.showDetailsForm()',
+              ng-show='!$ctrl.extraDetails',
+              ) Add pet Details
+                i.icon-plus.pull-left
+              button.btn.btn-big.btn-blue(ng-click='$ctrl.submitForm("foundForm")') Submit
